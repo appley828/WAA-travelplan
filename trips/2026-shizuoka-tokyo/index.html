@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026夏 靜岡・東京 · WAA家</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Helvetica Neue','Noto Sans TC',sans-serif;background:#F7FAFC;color:#1A2332;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid #EEF2F7;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-back{display:flex;align-items:center;gap:8px;color:#2A6496;font-size:13px;text-decoration:none;font-weight:600;transition:color .2s;}
+  .nav-back:hover{color:#1A3A5C;}
+  .nav-back svg{transition:transform .2s;}
+  .nav-back:hover svg{transform:translateX(-3px);}
+  .nav-title{font-size:13px;font-weight:700;color:#1A3A5C;}
+  .nav-right{font-size:11px;color:#2A9D8F;letter-spacing:2px;font-weight:600;}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#1A3A5C 0%,#2A6496 55%,#5BA4CF 100%);padding:64px 24px 52px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");}
+  .hero-label{font-size:11px;letter-spacing:5px;color:#7EC8E3;text-transform:uppercase;margin-bottom:10px;}
+  .hero h1{font-size:clamp(36px,6vw,58px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:8px;}
+  .hero h1 span{color:#5BC8E8;}
+  .hero-sub{font-size:16px;color:#A8CDE8;margin-bottom:28px;}
+  .hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+  .badge{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.22);color:#fff;padding:5px 14px;border-radius:999px;font-size:11px;}
+  .route-bar{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.09);border-radius:999px;padding:9px 20px;color:#fff;font-size:12px;font-weight:600;flex-wrap:wrap;justify-content:center;}
+  .arrow{color:#5BA4CF;}
+
+  /* ALERT */
+  .alert-wrap{max-width:900px;margin:28px auto 0;padding:0 20px;}
+  .alert-box{background:#fff;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.08);overflow:hidden;}
+  .alert-head{background:linear-gradient(135deg,#C0392B,#E74C3C);padding:14px 22px;}
+  .alert-head h2{color:#fff;font-size:15px;font-weight:700;}
+  .alert-head p{color:rgba(255,255,255,0.78);font-size:11px;margin-top:1px;}
+  .alert-body{padding:18px 22px;}
+  .alert-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  @media(max-width:680px){.alert-grid{grid-template-columns:1fr;}}
+  .ai{padding:12px 14px;border-radius:10px;}
+  .ai.red{background:#FFF0EF;border-left:4px solid #E74C3C;}
+  .ai.yellow{background:#FFFBEE;border-left:4px solid #F5C842;}
+  .ai.green{background:#F0FFF4;border-left:4px solid #27AE60;}
+  .ai .lbl{font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:5px;}
+  .ai.red .lbl{color:#C0392B;}.ai.yellow .lbl{color:#9A7B00;}.ai.green .lbl{color:#1A6B3C;}
+  .ai ul{list-style:none;}
+  .ai ul li{font-size:11px;color:#333;padding:2px 0;display:flex;gap:5px;line-height:1.5;}
+
+  /* CONTAINER */
+  .container{max-width:900px;margin:0 auto;padding:0 20px;}
+  .section{padding:44px 0 20px;}
+  .section-title{font-size:23px;font-weight:800;color:#1A3A5C;border-left:5px solid #5BA4CF;padding-left:12px;margin-bottom:24px;}
+
+  /* OVERVIEW */
+  .ov-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  @media(max-width:700px){.ov-grid{grid-template-columns:1fr 1fr;}}
+  .dc{background:#fff;border-radius:13px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.07);transition:transform .2s,box-shadow .2s;text-decoration:none;display:block;}
+  .dc:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,0.11);}
+  .dch{padding:11px 10px 8px;color:#fff;}
+  .dch .dn{font-size:9px;font-weight:700;letter-spacing:1px;opacity:.85;}
+  .dch .dd{font-size:11px;font-weight:600;margin-top:2px;}
+  .dcb{padding:11px 10px;}
+  .dc-icon{font-size:24px;margin-bottom:5px;}
+  .dc-place{font-size:14px;font-weight:800;margin-bottom:2px;}
+  .dc-detail{font-size:9px;color:#888;line-height:1.5;}
+
+  /* DAY SECTION */
+  .ds{margin-bottom:32px;scroll-margin-top:70px;}
+  .dh{border-radius:14px 14px 0 0;padding:20px 24px;color:#fff;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px;}
+  .dhl .dl{font-size:11px;letter-spacing:2px;opacity:.78;margin-bottom:3px;}
+  .dhl h2{font-size:23px;font-weight:800;}
+  .dhr{text-align:right;}
+  .dhr .city{font-size:18px;font-weight:800;}
+  .dhr .city-en{font-size:10px;opacity:.68;margin-top:1px;}
+  .db{background:#fff;border-radius:0 0 14px 14px;box-shadow:0 4px 14px rgba(0,0,0,0.07);padding:0 24px 20px;}
+
+  /* TAGS */
+  .tags{display:flex;gap:6px;padding:12px 0 14px;flex-wrap:wrap;align-items:center;}
+  .tag{padding:3px 11px;border-radius:999px;font-size:9px;font-weight:600;color:#fff;}
+  .htag{margin-left:auto;background:#EEF6FF;color:#2A6496;padding:3px 11px;border-radius:999px;font-size:9px;font-weight:600;white-space:nowrap;}
+
+  /* TIMELINE */
+  .tl{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;}
+  @media(max-width:580px){.tl{grid-template-columns:1fr;}}
+  .ti{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid #F0F0F0;}
+  .ti:last-child{border-bottom:none;}
+  .tt{font-size:10px;font-weight:700;min-width:34px;padding-top:2px;}
+  .td{width:7px;height:7px;border-radius:50%;margin-top:4px;flex-shrink:0;}
+  .tx{font-size:12px;line-height:1.5;color:#333;}
+  .ts{font-size:10px;color:#888;margin-top:1px;}
+
+  /* MEAL */
+  .ms{margin-top:16px;}
+  .mh{font-size:11px;font-weight:700;color:#555;letter-spacing:1px;margin-bottom:9px;padding-bottom:5px;border-bottom:2px solid #F0F0F0;}
+  .mg{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  @media(max-width:480px){.mg{grid-template-columns:1fr;}}
+  .mc{border-radius:9px;padding:11px 13px;}
+  .mc.lunch{background:#FFF8EE;border-left:3px solid #F5A623;}
+  .mc.dinner{background:#F0F4FF;border-left:3px solid #2A6496;}
+  .mc.booked{background:#F0FFF4;border-left:3px solid #27AE60;}
+  .mc .mt{font-size:9px;font-weight:700;letter-spacing:1px;margin-bottom:3px;}
+  .mc.lunch .mt{color:#C47A00;}.mc.dinner .mt{color:#1A3A5C;}.mc.booked .mt{color:#1A6B3C;}
+  .mc .mn{font-size:12px;font-weight:700;margin-bottom:2px;}
+  .mc .md{font-size:10px;color:#666;line-height:1.5;}
+  .mc .msk{font-size:10px;color:#8B3A3A;margin-top:3px;font-style:italic;}
+
+  /* TIP */
+  .tip{margin-top:14px;padding:9px 14px;background:#FFFBEE;border-left:4px solid #F5C842;border-radius:0 7px 7px 0;font-size:11px;color:#7A5F00;}
+
+  /* SPLIT (Day5) */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  @media(max-width:560px){.split{grid-template-columns:1fr;}}
+  .sc{border-radius:11px;overflow:hidden;}
+  .sch{padding:11px 15px;color:#fff;font-weight:700;font-size:12px;}
+  .scb{background:#FAFAFA;padding:12px 15px;}
+  .reunion{margin-top:14px;padding:14px 16px;background:#EEF6FF;border-radius:11px;}
+  .reunion-title{font-size:11px;font-weight:700;color:#1A3A5C;margin-bottom:9px;}
+
+  /* INFO */
+  .ig{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:580px){.ig{grid-template-columns:1fr;}}
+  .icard{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+  .icard h3{font-size:14px;font-weight:700;color:#1A3A5C;margin-bottom:12px;}
+  .hr{display:flex;gap:9px;padding:8px 0;border-bottom:1px solid #F0F0F0;align-items:flex-start;}
+  .hr:last-of-type{border-bottom:none;}
+  .hn{font-size:9px;font-weight:700;min-width:40px;padding-top:2px;}
+  .hi .hname{font-size:11px;font-weight:600;}
+  .hi .haddr{font-size:9px;color:#999;margin-top:1px;}
+  .fc{padding:11px 13px;border-radius:9px;color:#fff;margin-bottom:9px;}
+  .fno{font-size:9px;font-weight:700;letter-spacing:1px;opacity:.78;}
+  .froute{font-size:13px;font-weight:700;margin-top:3px;}
+  .fdet{font-size:9px;opacity:.72;margin-top:1px;}
+
+  /* COST TABLE */
+  .ct{width:100%;border-collapse:collapse;font-size:11px;margin-top:9px;}
+  .ct th{background:#1A3A5C;color:#fff;padding:7px 11px;text-align:left;font-weight:600;}
+  .ct td{padding:7px 11px;border-bottom:1px solid #EEE;}
+  .ct tr:last-child td{border-bottom:none;font-weight:700;background:#EEF6FF;}
+
+  /* TIPS LIST */
+  .tpl{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .tpl li{display:flex;gap:9px;font-size:12px;color:#444;padding:9px 13px;background:#fff;border-radius:9px;box-shadow:0 1px 5px rgba(0,0,0,0.05);line-height:1.5;}
+
+  /* DIVIDER */
+  .div{height:1px;background:linear-gradient(90deg,transparent,#D0D8E4,transparent);margin:4px 0;}
+
+  /* FOOTER */
+  footer{background:#1A3A5C;color:#A8CDE8;text-align:center;padding:24px;font-size:11px;margin-top:40px;}
+  footer strong{color:#fff;display:block;font-size:15px;margin-bottom:4px;}
+  .back-btn{display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:rgba(91,164,207,0.15);border:1px solid rgba(91,164,207,0.3);color:#5BA4CF;padding:8px 20px;border-radius:999px;text-decoration:none;font-size:12px;font-weight:600;transition:background .2s;}
+  .back-btn:hover{background:rgba(91,164,207,0.25);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-back" href="../../">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M13 7H1M6 2L1 7l5 5" stroke="#A8CDE8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    WAA家 作品集
+  </a>
+  <div class="nav-title">2026夏 靜岡・東京</div>
+  <div class="nav-right">5天4夜</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-label">WAA家 · Summer 2026</p>
+  <h1>靜岡<span>・</span>東京</h1>
+  <p class="hero-sub">5天4夜 · 三人家庭旅行 · 女兒八歲生日之旅</p>
+  <div class="hero-badges">
+    <span class="badge">📅 2026.8.5 – 8.9</span>
+    <span class="badge">👨‍👩‍👧 爸爸・媽媽・女兒</span>
+    <span class="badge">🎂 8/7 女兒生日</span>
+    <span class="badge">✈️ JL096 / JL099</span>
+  </div>
+  <div class="route-bar">
+    <span>🏖️ 熱海</span><span class="arrow">→</span>
+    <span>🗻 日本平</span><span class="arrow">→</span>
+    <span>🎡 清水</span><span class="arrow">→</span>
+    <span>♨️ 修善寺</span><span class="arrow">→</span>
+    <span>🗼 東京</span><span class="arrow">→</span>
+    <span>🛫 松山</span>
+  </div>
+</div>
+
+<!-- ALERT -->
+<div class="alert-wrap">
+  <div class="alert-box">
+    <div class="alert-head">
+      <h2>⚠️ 重要預約提醒</h2>
+      <p>請依緊急程度盡快處理</p>
+    </div>
+    <div class="alert-body">
+      <div class="alert-grid">
+        <div class="ai red">
+          <div class="lbl">🔴 立即處理</div>
+          <ul>
+            <li>新井旅館 預約 arairyokan.net（同時取消原修善寺溫泉飯店，7/30前免費取消）</li>
+            <li>teamLab Borderless：<strong>7/1 早上搶票</strong>，8月票極速售罄！teamlab.art/e/tokyo/</li>
+          </ul>
+        </div>
+        <div class="ai yellow">
+          <div class="lbl">🟡 6月底前完成</div>
+          <ul>
+            <li>踴子號 Odoriko 特急券（7/8 可開始預購）</li>
+            <li>日本平飯店接駁車確認（16:20 or 17:20班次）</li>
+            <li>新井旅館 文化財導覽時間確認</li>
+          </ul>
+        </div>
+        <div class="ai green">
+          <div class="lbl">✅ 出發前確認</div>
+          <ul>
+            <li>小丸子樂園女兒生日見面會時段</li>
+            <li>宅急便寄送（熱海飯店前台協助）</li>
+            <li>JL099 check-in 截止 <strong>16:25</strong></li>
+            <li>磯自慢大吟釀可於羽田免稅店購買</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="container">
+  <div class="section">
+    <h2 class="section-title">行程總覽</h2>
+    <div class="ov-grid">
+      <a class="dc" href="#day1">
+        <div class="dch" style="background:#2A6496"><div class="dn">DAY 1</div><div class="dd">8/5（三）</div></div>
+        <div class="dcb"><div class="dc-icon">✈️</div><div class="dc-place" style="color:#2A6496">熱海</div><div class="dc-detail">松山→羽田→熱海<br>星野 RISONARE</div></div>
+      </a>
+      <a class="dc" href="#day2">
+        <div class="dch" style="background:#1A7A6E"><div class="dn">DAY 2</div><div class="dd">8/6（四）</div></div>
+        <div class="dcb"><div class="dc-icon">🗻</div><div class="dc-place" style="color:#1A7A6E">日本平</div><div class="dc-detail">熱海→靜岡<br>富士山絕景</div></div>
+      </a>
+      <a class="dc" href="#day3">
+        <div class="dch" style="background:#8B5E6B"><div class="dn">DAY 3 🎂</div><div class="dd">8/7（五）</div></div>
+        <div class="dcb"><div class="dc-icon">♨️</div><div class="dc-place" style="color:#8B5E6B">修善寺</div><div class="dc-detail">清水小丸子<br>女兒生日・新井旅館</div></div>
+      </a>
+      <a class="dc" href="#day4">
+        <div class="dch" style="background:#C8962A"><div class="dn">DAY 4</div><div class="dd">8/8（六）</div></div>
+        <div class="dcb"><div class="dc-icon">🗼</div><div class="dc-place" style="color:#C8962A">東京</div><div class="dc-detail">修善寺→品川<br>增上寺・鐵塔</div></div>
+      </a>
+      <a class="dc" href="#day5">
+        <div class="dch" style="background:#5BA4CF"><div class="dn">DAY 5</div><div class="dd">8/9（日）</div></div>
+        <div class="dcb"><div class="dc-icon">🎨</div><div class="dc-place" style="color:#5BA4CF">返程</div><div class="dc-detail">teamLab（媽女）<br>濱離宮（爸）</div></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- DAYS -->
+<div class="container">
+  <div class="section">
+    <h2 class="section-title">每日詳細行程</h2>
+
+    <!-- DAY 1 -->
+    <div class="ds" id="day1">
+      <div class="dh" style="background:linear-gradient(135deg,#1A3A5C,#2A6496)">
+        <div class="dhl"><div class="dl">DAY 1 · 2026.8.5（三）</div><h2>台北 → 羽田 → 熱海</h2></div>
+        <div class="dhr"><div class="city">熱海</div><div class="city-en">Atami, Shizuoka</div></div>
+      </div>
+      <div class="db">
+        <div class="tags">
+          <span class="tag" style="background:#2A6496">✈️ 飛行日</span>
+          <span class="tag" style="background:#2A6496">♨️ 溫泉</span>
+          <span class="tag" style="background:#2A6496">🍷 美酒</span>
+          <span class="htag">🏨 星野集團 RISONARE 熱海</span>
+        </div>
+        <div class="tl">
+          <div class="ti"><span class="tt" style="color:#2A6496">09:40</span><span class="td" style="background:#2A6496"></span><div><div class="tx">✈️ JL096 松山機場出發</div></div></div>
+          <div class="ti"><span class="tt" style="color:#2A6496">13:50</span><span class="td" style="background:#2A6496"></span><div><div class="tx">🛬 羽田 T3 落地，辦入境+提領行李（約40分）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#2A6496">14:35</span><span class="td" style="background:#2A6496"></span><div><div class="tx">🚇 京急機場線 羽田T3 → 品川（約25分）</div><div class="ts">¥410/人</div></div></div>
+          <div class="ti"><span class="tt" style="color:#2A6496">16:04</span><span class="td" style="background:#2A6496"></span><div><div class="tx">🚄 Kodama 739 品川発 → 熱海着 16:44</div><div class="ts">¥4,290/人（自由席）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#2A6496">17:00</span><span class="td" style="background:#2A6496"></span><div><div class="tx">🏨 飯店接駁 → 星野 RISONARE 熱海 Check-in</div></div></div>
+          <div class="ti"><span class="tt" style="color:#2A6496">17:30</span><span class="td" style="background:#2A6496"></span><div><div class="tx">🍽️ 星野 Mogu Mogu 晚餐（已預約 ✅）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#2A6496">夜間</span><span class="td" style="background:#2A6496"></span><div><div class="tx">♨️ 溫泉入浴，享受 RISONARE 設施</div></div></div>
+        </div>
+        <div class="ms">
+          <div class="mh">🍽️ 餐飲</div>
+          <div class="mg">
+            <div class="mc lunch"><div class="mt">🌤 LUNCH · 品川駅</div><div class="mn">駅弁 or コンビニ</div><div class="md">入境後時間緊湊，品川站便當輕食即可</div></div>
+            <div class="mc booked"><div class="mt">🌙 DINNER · 已預約 ✅</div><div class="mn">星野 Mogu Mogu 17:30</div><div class="md">飯店內海景餐廳</div><div class="msk">🍶 磯自慢 大吟釀（G7峰會用酒，搭配金目鯛）</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="ds" id="day2">
+      <div class="dh" style="background:linear-gradient(135deg,#0E5C54,#1A7A6E)">
+        <div class="dhl"><div class="dl">DAY 2 · 2026.8.6（四）</div><h2>熱海 → 靜岡 → 日本平</h2></div>
+        <div class="dhr"><div class="city">日本平</div><div class="city-en">Nihondaira, Shizuoka</div></div>
+      </div>
+      <div class="db">
+        <div class="tags">
+          <span class="tag" style="background:#1A7A6E">🛍️ 逛街</span>
+          <span class="tag" style="background:#1A7A6E">📷 攝影</span>
+          <span class="tag" style="background:#1A7A6E">🍵 甜點</span>
+          <span class="tag" style="background:#1A7A6E">⛩️ 東照宮</span>
+          <span class="htag">🏨 日本平飯店</span>
+        </div>
+        <div class="tl">
+          <div class="ti"><span class="tt" style="color:#1A7A6E">10:00</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🧳 退房 + 📦 宅急便寄大件行李 → 東京相鐵飯店</div><div class="ts">¥1,500–2,500/件，請飯店前台協助</div></div></div>
+          <div class="ti"><span class="tt" style="color:#1A7A6E">10:30</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">📷 タクシー → 熱海銀座（昭和風情街道攝影）</div><div class="ts">約¥800</div></div></div>
+          <div class="ti"><span class="tt" style="color:#1A7A6E">11:09</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🚄 Kodama 711 熱海発 → 靜岡着 11:32</div><div class="ts">¥3,310/人</div></div></div>
+          <div class="ti"><span class="tt" style="color:#1A7A6E">11:45</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🚌 靜岡駅北口 11番 → 日本平線巴士（約45分）</div><div class="ts">¥680/人</div></div></div>
+          <div class="ti"><span class="tt" style="color:#1A7A6E">12:30</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🌄 日本平夢テラス（隈研吾設計・富士山360度）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#1A7A6E">14:00</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🚡 日本平ロープウェイ → 久能山東照宮</div><div class="ts">¥620往返 + 入館¥500/人</div></div></div>
+          <div class="ti"><span class="tt" style="color:#1A7A6E">16:20</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🚌 飯店接駁車（需提前確認預約）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#1A7A6E">16:30</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🏨 Check-in 日本平飯店（風景美術館）</div></div></div>
+        </div>
+        <div class="ms">
+          <div class="mh">🍽️ 餐飲</div>
+          <div class="mg">
+            <div class="mc lunch"><div class="mt">🌤 LUNCH · 日本平夢テラス</div><div class="mn">テラスグリル / テラスカフェ</div><div class="md">景觀餐廳，邊看富士山邊用餐<br>靜岡茶甜點必吃</div></div>
+            <div class="mc booked"><div class="mt">🌙 DINNER · 飯店內 ✅</div><div class="mn">日本平飯店 餐廳</div><div class="md">法式或和式料理，面向清水港夜景</div><div class="msk">🍶 臥龍梅 吟釀（清水當地銘柄）</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="ds" id="day3">
+      <div class="dh" style="background:linear-gradient(135deg,#6B3A4A,#8B5E6B)">
+        <div class="dhl"><div class="dl">DAY 3 · 2026.8.7（五）🎂 女兒生日</div><h2>清水 → 修善寺</h2></div>
+        <div class="dhr"><div class="city">修善寺溫泉</div><div class="city-en">Shuzenji Onsen, Izu</div></div>
+      </div>
+      <div class="db">
+        <div class="tags">
+          <span class="tag" style="background:#8B5E6B">🎂 生日</span>
+          <span class="tag" style="background:#8B5E6B">🎡 小丸子</span>
+          <span class="tag" style="background:#8B5E6B">♨️ 溫泉</span>
+          <span class="tag" style="background:#8B5E6B">🏛️ 文化財</span>
+          <span class="htag">🏨 新井旅館（登錄有形文化財）</span>
+        </div>
+        <div class="tl">
+          <div class="ti"><span class="tt" style="color:#8B5E6B">10:00</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🚌 飯店接駁 → JR 清水駅</div></div></div>
+          <div class="ti"><span class="tt" style="color:#8B5E6B">10:15</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🧳 行李寄置物櫃（清水駅 or Dream Plaza 1F）</div><div class="ts">¥300–500</div></div></div>
+          <div class="ti"><span class="tt" style="color:#8B5E6B">10:30</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🎡 ちびまる子ちゃんランド（S-Pulse Dream Plaza）</div><div class="ts">大人¥1,000 / 兒童¥700 · 確認生日見面會時段</div></div></div>
+          <div class="ti"><span class="tt" style="color:#8B5E6B">13:30</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🧳 取行李 → 清水駅</div></div></div>
+          <div class="ti"><span class="tt" style="color:#8B5E6B">13:48</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🚃 JR東海道本線 清水発 → 三島着 14:38（約50分）</div><div class="ts">¥970/人</div></div></div>
+          <div class="ti"><span class="tt" style="color:#8B5E6B">15:03</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🚃 伊豆箱根鉄道 三島発 → 修善寺着 15:38</div><div class="ts">¥510/人（三島で25分ゆっくり待ち）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#8B5E6B">16:00</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🏨 Check-in 新井旅館（告知女兒生日）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#8B5E6B">16:30</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🏛️ 文化財建物導覽（百年木造廊道）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#8B5E6B">20:30</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🎋 竹林の小径 夜間散步 + 獨鈷の湯足湯</div></div></div>
+        </div>
+        <div class="ms">
+          <div class="mh">🍽️ 餐飲</div>
+          <div class="mg">
+            <div class="mc lunch"><div class="mt">🌤 LUNCH · 清水港</div><div class="mn">清水魚市場 河岸の市 まぐろ館</div><div class="md">Dream Plaza旁步行5分・現撈鮪魚丼<br>🎂 生日女兒最愛的地方！<br>週三公休，9:30–17:30</div></div>
+            <div class="mc booked"><div class="mt">🌙 DINNER · 飯店內 ✅</div><div class="mn">新井旅館 懷石晚宴（生日慶祝）</div><div class="md">百年文化財空間內用餐</div><div class="msk">🍶 初龜 Hatsukame（靜岡最古老酒造）</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="ds" id="day4">
+      <div class="dh" style="background:linear-gradient(135deg,#9A6E18,#C8962A)">
+        <div class="dhl"><div class="dl">DAY 4 · 2026.8.8（六）</div><h2>修善寺 → 東京</h2></div>
+        <div class="dhr"><div class="city">東京</div><div class="city-en">Tokyo</div></div>
+      </div>
+      <div class="db">
+        <div class="tags">
+          <span class="tag" style="background:#C8962A">📷 攝影</span>
+          <span class="tag" style="background:#C8962A">♨️ 晨泉</span>
+          <span class="tag" style="background:#C8962A">🛍️ 購物</span>
+          <span class="tag" style="background:#C8962A">🗼 東京鐵塔</span>
+          <span class="htag">🏨 相鐵 Fresa Inn 大門站前</span>
+        </div>
+        <div class="tl">
+          <div class="ti"><span class="tt" style="color:#C8962A">07:00</span><span class="td" style="background:#C8962A"></span><div><div class="tx">♨️ 晨間溫泉（清晨最靜謐舒適）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#C8962A">08:30</span><span class="td" style="background:#C8962A"></span><div><div class="tx">📷 竹林の小径・獨鈷の湯・修禅寺 晨光攝影</div></div></div>
+          <div class="ti"><span class="tt" style="color:#C8962A">10:00</span><span class="td" style="background:#C8962A"></span><div><div class="tx">🛍️ 溫泉街土產購物（Check-out 11:00前）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#C8962A">11:08</span><span class="td" style="background:#C8962A"></span><div><div class="tx">🚃 特急 踴子號 Odoriko 102 修善寺発 → 品川着 13:23</div><div class="ts">¥4,600/人・直達不換車</div></div></div>
+          <div class="ti"><span class="tt" style="color:#C8962A">13:30</span><span class="td" style="background:#C8962A"></span><div><div class="tx">🚃 JR 品川 → 浜松町（約8分）</div><div class="ts">¥160/人</div></div></div>
+          <div class="ti"><span class="tt" style="color:#C8962A">13:45</span><span class="td" style="background:#C8962A"></span><div><div class="tx">🏨 相鐵 Fresa Inn 大門 Check-in（宅急便行李已到）</div></div></div>
+          <div class="ti"><span class="tt" style="color:#C8962A">14:30</span><span class="td" style="background:#C8962A"></span><div><div class="tx">🛍️ 澀谷 or 新宿 逛街購物・甜點下午茶</div></div></div>
+          <div class="ti"><span class="tt" style="color:#C8962A">17:30</span><span class="td" style="background:#C8962A"></span><div><div class="tx">⛩️ 增上寺 → 東京鐵塔黃昏攝影（步行約8分）</div></div></div>
+        </div>
+        <div class="ms">
+          <div class="mh">🍽️ 餐飲</div>
+          <div class="mg">
+            <div class="mc lunch"><div class="mt">🌤 LUNCH · 修善寺温泉街</div><div class="mn">禅風亭 なゝ番</div><div class="md">溫泉街人氣蕎麥・招牌「禅寺そば」<br>新鮮山葵現磨・建議11:30提早用餐</div></div>
+            <div class="mc dinner"><div class="mt">🌙 DINNER · 大門/浜松町</div><div class="mn">磯丸水産 or 新橋 居酒屋</div><div class="md">增上寺夜景攝影後步行即達</div><div class="msk">🍶 新政 No.6（東京頂尖清酒，微發泡）</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="ds" id="day5">
+      <div class="dh" style="background:linear-gradient(135deg,#2A6A96,#5BA4CF)">
+        <div class="dhl"><div class="dl">DAY 5 · 2026.8.9（日）分頭行動</div><h2>東京 → 羽田 → 松山</h2></div>
+        <div class="dhr"><div class="city">返程</div><div class="city-en">Back Home</div></div>
+      </div>
+      <div class="db">
+        <div class="tags">
+          <span class="tag" style="background:#8B5E6B">🎨 teamLab（媽女）</span>
+          <span class="tag" style="background:#1A7A6E">🌿 濱離宮（爸）</span>
+          <span class="tag" style="background:#5BA4CF">🛫 返程</span>
+          <span class="htag" style="color:#C0392B;background:#FFF0EF;">⚠️ check-in截止 16:25</span>
+        </div>
+        <div class="split">
+          <div class="sc">
+            <div class="sch" style="background:#8B5E6B">👩‍👧 媽媽 + 女兒｜麻布台之丘 teamLab</div>
+            <div class="scb">
+              <div class="ti"><span class="tt" style="color:#8B5E6B">09:45</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🚇 浜松町→神谷町（都営三田線，4分）</div><div class="ts">¥178/人</div></div></div>
+              <div class="ti"><span class="tt" style="color:#8B5E6B">10:00</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🎨 teamLab Borderless（麻布台之丘 B1F）</div><div class="ts">大人¥3,800 / 兒童¥2,000・約2–2.5小時</div></div></div>
+              <div class="ti"><span class="tt" style="color:#8B5E6B">12:30</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🍽️ 麻布台之丘商場午餐</div></div></div>
+              <div class="ti"><span class="tt" style="color:#8B5E6B">13:30</span><span class="td" style="background:#8B5E6B"></span><div><div class="tx">🚇 神谷町→浜松町 返回飯店</div></div></div>
+            </div>
+          </div>
+          <div class="sc">
+            <div class="sch" style="background:#1A7A6E">👨 爸爸｜濱離宮恩賜庭園 攝影</div>
+            <div class="scb">
+              <div class="ti"><span class="tt" style="color:#1A7A6E">09:30</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🚶 步行 浜松町→濱離宮（約12分）</div></div></div>
+              <div class="ti"><span class="tt" style="color:#1A7A6E">09:30</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🌿 濱離宮恩賜庭園（江戶庭園・東京灣攝影）</div><div class="ts">¥300/人</div></div></div>
+              <div class="ti"><span class="tt" style="color:#1A7A6E">11:00</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🍵 中島の御茶屋（抹茶＋和菓子）</div><div class="ts">¥600</div></div></div>
+              <div class="ti"><span class="tt" style="color:#1A7A6E">12:30</span><span class="td" style="background:#1A7A6E"></span><div><div class="tx">🚶 步行回飯店會合</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="reunion">
+          <div class="reunion-title">👨‍👩‍👧 全員集合 → 羽田</div>
+          <div class="tl">
+            <div class="ti"><span class="tt" style="color:#2A6496">14:00</span><span class="td" style="background:#2A6496"></span><div><div class="tx">🧳 飯店取行李，辦理退房</div></div></div>
+            <div class="ti"><span class="tt" style="color:#2A6496">15:00</span><span class="td" style="background:#2A6496"></span><div><div class="tx">🚇 大門駅 → 京急快特 → 羽田T3（約20分）</div><div class="ts">¥450/人</div></div></div>
+            <div class="ti"><span class="tt" style="color:#2A6496">15:20</span><span class="td" style="background:#2A6496"></span><div><div class="tx">📍 羽田T3 抵達（距截止還有65分鐘）</div></div></div>
+            <div class="ti"><span class="tt" style="color:#E74C3C;font-weight:800">16:25</span><span class="td" style="background:#E74C3C"></span><div><div class="tx" style="color:#C0392B;font-weight:700">⚠️ JL099 check-in 截止</div></div></div>
+            <div class="ti"><span class="tt" style="color:#2A6496">18:25</span><span class="td" style="background:#2A6496"></span><div><div class="tx">✈️ JL099 羽田発 → 松山 20:50着</div></div></div>
+          </div>
+        </div>
+        <div class="ms">
+          <div class="mh">🍽️ 餐飲</div>
+          <div class="mg">
+            <div class="mc lunch"><div class="mt">🌤 LUNCH · 各自</div><div class="mn">媽女：麻布台之丘商場／爸：御茶屋</div><div class="md">爸爸：中島の御茶屋 抹茶+和菓子（¥600）</div></div>
+            <div class="mc dinner"><div class="mt">🌙 機場晚餐 · 羽田T3</div><div class="mn">江戶小路 餐廳區</div><div class="md">推薦「牛かつもと村」or「天一」天婦羅<br>別忘了買磯自慢大吟釀帶回台灣！</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- INFO -->
+<div class="container">
+  <div class="section">
+    <h2 class="section-title">住宿 & 機票資訊</h2>
+    <div class="ig">
+      <div class="icard">
+        <h3>🏨 住宿一覽</h3>
+        <div class="hr"><span class="hn" style="color:#2A6496">8/5–6</span><div class="hi"><div class="hname">星野集團 RISONARE 熱海</div><div class="haddr">靜岡縣熱海市水口町 2-13-1 · 全客房海景</div></div></div>
+        <div class="hr"><span class="hn" style="color:#1A7A6E">8/6–7</span><div class="hi"><div class="hname">日本平飯店（風景美術館）</div><div class="haddr">靜岡市清水区馬走1500-2 · 8/2前可取消</div></div></div>
+        <div class="hr"><span class="hn" style="color:#8B5E6B">8/7–8</span><div class="hi"><div class="hname">新井旅館（登錄有形文化財）⭐</div><div class="haddr">靜岡縣伊豆市修善寺 · arairyokan.net · 起¥29,700/人</div></div></div>
+        <div class="hr"><span class="hn" style="color:#C8962A">8/8–9</span><div class="hi"><div class="hname">相鐵 Fresa Inn 大門站前</div><div class="haddr">東京都港区芝大門 2-6-2</div></div></div>
+      </div>
+      <div class="icard">
+        <h3>✈️ 機票 & 費用</h3>
+        <div class="fc" style="background:linear-gradient(135deg,#1A3A5C,#2A6496)">
+          <div class="fno">JL096 · 去程</div>
+          <div class="froute">TSA 松山 09:40 → HND 羽田 13:50</div>
+          <div class="fdet">飛行約 2h10m</div>
+        </div>
+        <div class="fc" style="background:linear-gradient(135deg,#2A6A96,#5BA4CF)">
+          <div class="fno">JL099 · 回程</div>
+          <div class="froute">HND 羽田 18:25 → TSA 松山 20:50</div>
+          <div class="fdet">飛行約 2h25m · ⚠️ check-in截止 16:25</div>
+        </div>
+        <table class="ct">
+          <tr><th>交通 & 門票項目</th><th>3人合計</th></tr>
+          <tr><td>Day1 京急+新幹線</td><td>¥14,100</td></tr>
+          <tr><td>Day2 新幹線+巴士+纜車+東照宮</td><td>¥13,530</td></tr>
+          <tr><td>Day3 JR+伊豆箱根+置物櫃</td><td>¥5,340</td></tr>
+          <tr><td>Day4 踴子號+JR</td><td>¥14,280</td></tr>
+          <tr><td>Day5 地鐵+京急+濱離宮</td><td>¥2,862</td></tr>
+          <tr><td>宅急便（2件）+ 門票</td><td>¥16,160</td></tr>
+          <tr><td><strong>總計（不含住宿機票餐飲）</strong></td><td><strong>約 ¥66,272</strong></td></tr>
+        </table>
+      </div>
+    </div>
+    <div style="margin-top:22px">
+      <h2 class="section-title" style="margin-bottom:14px">💡 行程小撇步</h2>
+      <ul class="tpl">
+        <li>📦 <strong>宅急便強力推薦：</strong>Day2 熱海退房時請前台協助寄送大件行李至東京相鐵飯店，全程只需背小包</li>
+        <li>🎫 <strong>置物櫃Tips：</strong>日本大站置物櫃可用 Suica/Pasmo 感應付款，不需準備零錢</li>
+        <li>📷 <strong>攝影時段：</strong>日本平清晨5:30 富士山光線最通透；修善寺竹林早晨8:00 光線最美</li>
+        <li>🍶 <strong>靜岡地酒：</strong>磯自慢建議在羽田機場免稅店購買帶回，最划算</li>
+        <li>🎨 <strong>teamLab：</strong>8月票 7/1 早上開搶，官網 teamlab.art/e/tokyo/，非常秒殺！</li>
+        <li>🚃 <strong>踴子號特急：</strong>7/8 後可預購，修善寺直達品川，不換車最舒適</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>WAA家 2026夏 · 靜岡・東京 5天4夜</strong>
+  ✈️ JL096 / JL099 &nbsp;|&nbsp; 8.5 – 8.9 &nbsp;|&nbsp; 🎂 8/7 女兒生日快樂！
+  <br>
+  <a class="back-btn" href="../../">
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M13 7H1M6 2L1 7l5 5" stroke="#5BA4CF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    返回作品集首頁
+  </a>
+</footer>
+
+</body>
+</html>

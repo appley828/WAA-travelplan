@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAA家 · 旅行作品集</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Helvetica Neue','Noto Sans TC',sans-serif;background:#FFFFFF;color:#1A2332;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid #EEF2F7;padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{font-size:22px;font-weight:900;color:#1A3A5C;letter-spacing:1px;}
+  .nav-logo span{color:#2A9D8F;}
+  .nav-tagline{font-size:11px;color:#8BA3B8;letter-spacing:3px;text-transform:uppercase;margin-top:1px;}
+
+  /* HERO */
+  .hero{background:linear-gradient(160deg,#E8F4FD 0%,#F0FBF8 40%,#FFF8F0 100%);padding:80px 40px 72px;position:relative;overflow:hidden;}
+  .hero-deco{position:absolute;top:-60px;right:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(42,157,143,0.08) 0%,transparent 70%);pointer-events:none;}
+  .hero-deco2{position:absolute;bottom:-80px;left:10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(42,100,150,0.06) 0%,transparent 70%);pointer-events:none;}
+  .hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;}
+  .hero-text{}
+  .hero-label{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #D4EAF7;color:#2A6496;font-size:11px;font-weight:700;letter-spacing:3px;padding:5px 14px;border-radius:999px;margin-bottom:20px;text-transform:uppercase;}
+  .hero h1{font-size:clamp(42px,5vw,64px);font-weight:900;color:#1A3A5C;line-height:1.1;margin-bottom:14px;}
+  .hero h1 em{font-style:normal;color:#2A9D8F;}
+  .hero-sub{font-size:16px;color:#5A7A96;line-height:1.7;max-width:440px;margin-bottom:32px;}
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .stat{text-align:center;background:#fff;border:1px solid #EEF2F7;border-radius:14px;padding:16px 24px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+  .stat-num{font-size:28px;font-weight:900;color:#2A6496;}
+  .stat-label{font-size:10px;color:#8BA3B8;letter-spacing:2px;margin-top:2px;text-transform:uppercase;}
+  .hero-visual{flex-shrink:0;}
+  .hero-map{width:260px;height:200px;background:linear-gradient(135deg,#E3F2FD,#E0F7F4);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:80px;box-shadow:0 8px 32px rgba(42,100,150,0.1);position:relative;overflow:hidden;}
+  .hero-map::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.3),transparent);}
+
+  /* SECTION */
+  .trips-section{max-width:1100px;margin:0 auto;padding:64px 24px 100px;}
+  .sec-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px;}
+  .sec-title{font-size:22px;font-weight:800;color:#1A3A5C;}
+  .sec-sub{font-size:12px;color:#8BA3B8;letter-spacing:1px;}
+
+  /* TRIP GRID */
+  .trip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+
+  /* TRIP CARD */
+  .trip-card{border-radius:20px;overflow:hidden;cursor:pointer;text-decoration:none;display:block;background:#fff;border:1px solid #EEF2F7;box-shadow:0 2px 12px rgba(0,0,0,0.05);transition:transform .25s,box-shadow .25s;}
+  .trip-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.1);}
+  .card-visual{height:180px;position:relative;overflow:hidden;}
+  .card-visual-bg{position:absolute;inset:0;transition:transform .4s;}
+  .trip-card:hover .card-visual-bg{transform:scale(1.05);}
+  .card-badge{position:absolute;top:14px;left:14px;background:rgba(255,255,255,0.9);backdrop-filter:blur(4px);color:#1A3A5C;font-size:10px;font-weight:800;letter-spacing:2px;padding:4px 12px;border-radius:999px;}
+  .card-flag{position:absolute;top:14px;right:14px;font-size:26px;}
+  .card-body{padding:20px 22px 22px;}
+  .card-meta{font-size:10px;color:#8BA3B8;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;}
+  .card-title{font-size:19px;font-weight:800;color:#1A3A5C;margin-bottom:5px;}
+  .card-sub{font-size:12px;color:#6B8FAF;line-height:1.6;margin-bottom:14px;}
+  .card-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px;}
+  .ctag{font-size:10px;padding:3px 9px;border-radius:999px;background:#F0F7FF;color:#2A6496;font-weight:600;}
+  .card-cta{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#2A9D8F;}
+  .card-cta svg{transition:transform .2s;}
+  .trip-card:hover .card-cta svg{transform:translateX(4px);}
+
+  /* COMING SOON */
+  .card-soon{background:#FAFBFC;border:2px dashed #D8E6F0;border-radius:20px;padding:40px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:300px;}
+  .soon-icon{font-size:36px;margin-bottom:10px;opacity:0.35;}
+  .soon-title{font-size:13px;color:#8BA3B8;font-weight:600;margin-bottom:4px;}
+  .soon-sub{font-size:11px;color:#B0C4D4;}
+
+  /* FOOTER */
+  footer{background:#F7FAFC;border-top:1px solid #EEF2F7;padding:32px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .footer-logo{font-size:18px;font-weight:900;color:#1A3A5C;}
+  .footer-logo span{color:#2A9D8F;}
+  .footer-copy{font-size:11px;color:#8BA3B8;}
+
+  @media(max-width:700px){
+    nav{padding:0 20px;}
+    .hero{padding:60px 20px 56px;}
+    .hero-visual{display:none;}
+    .trips-section{padding:48px 16px 80px;}
+    footer{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div>
+    <div class="nav-logo">WAA<span>家</span></div>
+    <div class="nav-tagline">Travel Portfolio</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-deco2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-label">✈️ WAA家 Travel Portfolio</div>
+      <h1>記錄每一段<br><em>家的旅程</em></h1>
+      <p class="hero-sub">從計畫到回憶，每次出發都是最好的家庭作業。這裡收藏著我們走過的每個角落。</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">1</div><div class="stat-label">旅程</div></div>
+        <div class="stat"><div class="stat-num">5</div><div class="stat-label">天數</div></div>
+        <div class="stat"><div class="stat-num">4</div><div class="stat-label">城市</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-map">🗾</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIPS -->
+<section class="trips-section">
+  <div class="sec-header">
+    <div class="sec-title">所有旅程</div>
+    <div class="sec-sub">1 個旅程 · 持續新增中</div>
+  </div>
+  <div class="trip-grid">
+
+    <!-- 2026 夏 靜岡・東京 -->
+    <a class="trip-card" href="trips/2026-shizuoka-tokyo/">
+      <div class="card-visual">
+        <div class="card-visual-bg" style="background:linear-gradient(135deg,#1A3A5C 0%,#2A6496 50%,#5BA4CF 100%);"></div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:80px;opacity:0.15;color:#fff;">🗻</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,rgba(26,58,92,0.85),transparent);"></div>
+        <div style="position:absolute;bottom:16px;left:18px;">
+          <div style="font-size:22px;font-weight:900;color:#fff;line-height:1.1;">靜岡・東京</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7);margin-top:2px;">Shizuoka · Tokyo</div>
+        </div>
+        <div class="card-badge">2026 夏</div>
+        <div class="card-flag">🇯🇵</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">2026.8.5 – 8.9 · 5天4夜</div>
+        <div class="card-title">WAA家 三人同行</div>
+        <div class="card-sub">熱海・日本平・小丸子・修善寺文化財・東京。女兒八歲生日，在百年旅館慶祝。</div>
+        <div class="card-tags">
+          <span class="ctag">♨️ 溫泉</span><span class="ctag">📷 攝影</span><span class="ctag">🛍️ 購物</span>
+          <span class="ctag">🍮 甜點</span><span class="ctag">🎂 生日</span><span class="ctag">🍶 清酒</span>
+        </div>
+        <div class="card-cta">
+          查看完整行程
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="#2A9D8F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <div class="card-soon"><div class="soon-icon">✈️</div><div class="soon-title">下一段旅程</div><div class="soon-sub">即將新增...</div></div>
+    <div class="card-soon"><div class="soon-icon">🗺️</div><div class="soon-title">探索中</div><div class="soon-sub">敬請期待</div></div>
+  </div>
+</section>
+
+<footer>
+  <div><div class="footer-logo">WAA<span>家</span></div></div>
+  <div class="footer-copy">旅行是最好的家庭作業 · Travel is the best homework for family</div>
+</footer>
+
+</body>
+</html>
