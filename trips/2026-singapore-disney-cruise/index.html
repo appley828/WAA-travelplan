@@ -40,21 +40,24 @@
   .alert-header h2 { color:#fff; font-size:17px; font-weight:700; }
   .alert-header p { color:rgba(255,255,255,0.85); font-size:12px; margin-top:2px; }
   .alert-body { padding:20px 24px; }
-  .alert-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .alert-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:stretch; }
   @media(max-width:680px){ .alert-grid { grid-template-columns:1fr; } }
   .alert-item { padding:14px 16px; border-radius:12px; }
   .alert-item.red { background:#FFF0EF; border-left:4px solid #E74C3C; }
   .alert-item.yellow { background:#FFFBEE; border-left:4px solid #F5C842; }
   .alert-item.green { background:#F0FFF4; border-left:4px solid #27AE60; }
-  .alert-item .a-label { font-size:10px; font-weight:700; letter-spacing:1px; margin-bottom:6px; }
+  .alert-item.blue { background:#EEF5FF; border-left:4px solid #2A6496; }
+  .alert-item .a-label { font-size:11px; font-weight:700; letter-spacing:1px; margin-bottom:8px; }
   .alert-item.red .a-label { color:#C0392B; }
   .alert-item.yellow .a-label { color:#9A7B00; }
   .alert-item.green .a-label { color:#1A6B3C; }
+  .alert-item.blue .a-label { color:#1F5C8C; }
   .alert-item ul { list-style:none; }
-  .alert-item ul li { font-size:11.5px; color:#333; padding:3px 0; display:flex; gap:6px; line-height:1.5; }
+  .alert-item ul li { font-size:11.5px; color:#333; padding:3px 0; display:flex; gap:6px; line-height:1.55; align-items:flex-start; }
   .alert-item.red ul li::before { content:'🔴'; flex-shrink:0; }
   .alert-item.yellow ul li::before { content:'🟡'; flex-shrink:0; }
   .alert-item.green ul li::before { content:'✅'; flex-shrink:0; }
+  .alert-item.blue ul li::before { content:'🧳'; flex-shrink:0; }
 
   /* DECISION BOX */
   .decision-box { max-width:960px; margin:20px auto 0; padding:0 20px; }
@@ -175,6 +178,21 @@
   .t-serv { background:#EEE; color:#666; }
   .t-pay { background:#FFEEEE; color:#C0392B; }
 
+  /* DECK MAP (schematic position diagram) */
+  .deck-mapwrap { padding:14px 14px 4px; }
+  .deck-svg { width:100%; height:auto; display:block; }
+  .deck-svg .hull { fill:#F7F5FC; stroke:#C9BEE6; stroke-width:2.5; }
+  .deck-svg .deck-line { stroke:#E3DBF2; stroke-width:1; stroke-dasharray:5 5; }
+  .deck-svg .pin { fill:#6B4E9E; }
+  .deck-svg .pin-room { fill:#E74C3C; stroke:#fff; stroke-width:2; }
+  .deck-svg .pinnum { fill:#fff; font-size:12px; font-weight:700; }
+  .deck-svg .dirlabel { fill:#9088A8; font-size:11px; font-weight:700; }
+  .deck-svg .roomlabel { fill:#C0392B; font-size:11px; font-weight:800; }
+  .deck-mapnote { font-size:10px; color:#A99FC2; text-align:center; padding:2px 0 0; }
+  .fac-no { flex-shrink:0; width:19px; height:19px; border-radius:50%; background:#6B4E9E; color:#fff; font-size:10.5px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+  .fac.is-room .fac-no { background:#E74C3C; }
+  .fac.is-room { background:#FFF5F4; border-radius:8px; padding:9px 8px; }
+
   /* INFO SECTION */
   .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
   @media(max-width:600px){ .info-grid { grid-template-columns:1fr; } }
@@ -228,10 +246,10 @@
   </a>
   <p class="hero-family">WAA家 · Family Cruise · Winter 2026</p>
   <h1>新加坡 <span>✦</span> 迪士尼探險號</h1>
-  <p class="hero-sub">6天5夜 · 三人家庭郵輪之旅 · 海上過聖誕 🎄</p>
+  <p class="hero-sub">6天5夜 · 五人家庭郵輪之旅 · 海上過聖誕 🎄</p>
   <div class="hero-badges">
     <span class="badge">📅 2026.12.23 – 12.28</span>
-    <span class="badge">👨‍👩‍👧 爸爸・媽媽・女兒</span>
+    <span class="badge">👵👩👧 婆婆・媽媽・大嫂・兩個女兒</span>
     <span class="badge">🚢 Disney Adventure 4晚</span>
     <span class="badge">✈️ CI-753 / CI-754</span>
   </div>
@@ -276,6 +294,17 @@
             <li>登船當天早上線上填寫健康申報表</li>
             <li>行李不會馬上送房，隨身包先放泳衣與當下要用的物品</li>
             <li>下船日（12/28）早上 <strong>8:00</strong> 一定要帶走剩餘行李離開房間</li>
+          </ul>
+        </div>
+        <div class="alert-item blue">
+          <div class="a-label">🧳 攜帶物品清單</div>
+          <ul>
+            <li><strong>吹風機</strong>（船上風力較弱，習慣者自備）</li>
+            <li><strong>暈船藥</strong>、個人常備藥、OK繃</li>
+            <li><strong>游泳用品</strong>：泳衣、泳鏡、防曬乳、海灘拖鞋</li>
+            <li>正式服裝（迪士尼之夜 / 晚宴）+ 女兒公主裝</li>
+            <li>保暖薄外套（室內冷氣強）、轉接插頭、行動電源</li>
+            <li>環保水壺、太陽眼鏡、帽子</li>
           </ul>
         </div>
       </div>
@@ -458,7 +487,7 @@
           </div>
         </div>
         <div class="tip-box">
-          🪪 <strong>SGAC 提醒：</strong>新加坡電子入境卡須在抵達前 72 小時內線上填寫（免費，官網 eservices.ica.gov.sg），三人各填一份。同時記得完成迪士尼線上 Check-in。
+          🪪 <strong>SGAC 提醒：</strong>新加坡電子入境卡須在抵達前 72 小時內線上填寫（免費，官網 eservices.ica.gov.sg），五人各填一份。同時記得完成迪士尼線上 Check-in。
         </div>
       </div>
     </div>
@@ -589,7 +618,7 @@
           <div class="tl-item">
             <span class="tl-time" style="color:#C0392B">16:00</span>
             <span class="tl-dot" style="background:#C0392B"></span>
-            <div><div class="tl-text">💆 爸媽輪流到 Senses Spa 放鬆（Deck 10，需預約付費）</div></div>
+            <div><div class="tl-text">💆 大人輪流到 Senses Spa 放鬆，婆婆顧孫女（Deck 10，需預約付費）</div></div>
           </div>
           <div class="tl-item">
             <span class="tl-time" style="color:#C0392B">20:00</span>
@@ -642,7 +671,7 @@
           <div class="tl-item">
             <span class="tl-time" style="color:#1A7A6E">09:00</span>
             <span class="tl-dot" style="background:#1A7A6E"></span>
-            <div><div class="tl-text">💪 爸爸健身中心（Deck 10/18）/ 媽媽女兒悠閒早餐</div></div>
+            <div><div class="tl-text">💪 媽媽們健身中心（Deck 10/18）/ 婆婆與孫女悠閒早餐</div></div>
           </div>
           <div class="tl-item">
             <span class="tl-time" style="color:#1A7A6E">10:30</span>
@@ -667,7 +696,7 @@
           <div class="tl-item">
             <span class="tl-time" style="color:#1A7A6E">19:30</span>
             <span class="tl-dot" style="background:#1A7A6E"></span>
-            <div><div class="tl-text">🎭 華特迪士尼劇院晚間秀 + 女兒送海洋俱樂部托管</div></div>
+            <div><div class="tl-text">🎭 華特迪士尼劇院晚間秀 + 兩個女兒送海洋俱樂部托管</div></div>
           </div>
         </div>
         <div class="meal-section">
@@ -679,14 +708,14 @@
               <div class="m-detail">森林之王主題餐廳，印度風味咖哩與烤餅，異國體驗</div>
             </div>
             <div class="meal-card booked">
-              <div class="m-type">🌙 DINNER · 成人約會 ✅</div>
+              <div class="m-type">🌙 DINNER · 大人聚餐 ✅</div>
               <div class="m-name">Palo Trattoria（義式高級餐廳，Deck 10/11）</div>
-              <div class="m-detail">需預約・付費・成人專屬。女兒在海洋俱樂部時，爸媽享受北義料理約會晚餐<br>🍷 搭配義式紅酒，浪漫海上之夜</div>
+              <div class="m-detail">需預約・付費・成人專屬。兩個女兒在海洋俱樂部托管時，婆婆與兩位媽媽享受北義料理晚餐<br>🍷 可搭配義式紅酒，悠閒海上之夜</div>
             </div>
           </div>
         </div>
         <div class="tip-box">
-          👑 <strong>付費活動要趁早：</strong>魔法化妝廳、公主下午茶、Palo 義式餐廳都非常熱門，務必在開放預訂日（航程前 75 天）第一時間搶。海洋俱樂部托管免費，可讓爸媽安心約會。
+          👑 <strong>付費活動要趁早：</strong>魔法化妝廳、公主下午茶、Palo 義式餐廳都非常熱門，務必在開放預訂日（航程前 75 天）第一時間搶。海洋俱樂部托管免費，可讓大人安心用餐。
         </div>
       </div>
     </div>
@@ -855,11 +884,11 @@
 <div class="container">
   <div class="section">
     <h2 class="section-title">🚢 迪士尼探險號 · 樓層導覽全攻略</h2>
-    <div class="section-note">原始甲板圖較模糊，這裡將各層餐廳、商店、設施重新整理為清晰文字版，方便上船快速查找</div>
+    <div class="section-note">原始甲板圖較模糊，這裡將各層重新整理為清晰的「示意位置圖 + 設施清單」，地圖上的數字對應清單編號，方便上船快速定位</div>
 
     <div class="deck-intro">
       <h3>關於 Disney Adventure 探險號</h3>
-      <p>新加坡母港的迪士尼郵輪，全球首艘擁有海上雲霄飛車（Ironcycle Test Run）與第一座海上迪士尼城堡花園。主要公共樓層為 Deck 5–11（餐廳、劇院、親子俱樂部、城堡），戶外娛樂與泳池集中在 Deck 17–19。下表依樓層整理重點設施。</p>
+      <p>新加坡母港的迪士尼郵輪，全球首艘擁有海上雲霄飛車（Ironcycle Test Run）與第一座海上迪士尼城堡花園。主要公共樓層為 Deck 5–11（餐廳、劇院、親子俱樂部、城堡），戶外娛樂與泳池集中在 Deck 17–19。每層附示意位置圖（船頭朝右），數字標記對應下方設施清單。</p>
       <div class="legend">
         <span class="lg-dine">🍽️ 餐廳</span>
         <span class="lg-bar">🍸 酒吧</span>
@@ -878,13 +907,27 @@
           <div class="deck-num">5</div>
           <div class="deck-name">第五層甲板<small>劇院・主餐廳・購物</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第五層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="400" cy="72" r="12"/><text class="pinnum" x="400" y="76" text-anchor="middle">1</text>
+            <circle class="pin" cx="100" cy="102" r="12"/><text class="pinnum" x="100" y="106" text-anchor="middle">2</text>
+            <circle class="pin" cx="255" cy="46" r="12"/><text class="pinnum" x="255" y="50" text-anchor="middle">3</text>
+            <circle class="pin" cx="310" cy="102" r="12"/><text class="pinnum" x="310" y="106" text-anchor="middle">4</text>
+            <circle class="pin" cx="190" cy="72" r="12"/><text class="pinnum" x="190" y="76" text-anchor="middle">5</text>
+            <circle class="pin" cx="140" cy="46" r="12"/><text class="pinnum" x="140" y="50" text-anchor="middle">6</text>
+          </svg>
+          <div class="deck-mapnote">設施位置為示意參考，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">🎭</span><div class="fac-info"><div class="fac-name">華特迪士尼劇院<span class="fac-en">Walt Disney Theatre</span></div><div class="fac-desc">橫跨 5–7 層、1290 座的主劇院，每晚上演迪士尼匯演大秀</div></div><span class="fac-tag t-fun">娛樂</span></div>
-          <div class="fac"><span class="fac-ico">🍽️</span><div class="fac-info"><div class="fac-name">Animator's Palate<span class="fac-en">動畫師餐廳</span></div><div class="fac-desc">黑白空間漸變彩色，宛如走進動畫世界的互動主餐廳</div></div><span class="fac-tag t-dine">主餐廳</span></div>
-          <div class="fac"><span class="fac-ico">🛍️</span><div class="fac-info"><div class="fac-name">World of Disney<span class="fac-en">迪士尼世界商店</span></div><div class="fac-desc">船上最大商店，迪士尼周邊、服飾、玩偶一網打盡</div></div><span class="fac-tag t-shop">購物</span></div>
-          <div class="fac"><span class="fac-ico">🛍️</span><div class="fac-info"><div class="fac-name">World of Disney Too<span class="fac-en">探險號限定店</span></div><div class="fac-desc">新加坡＆探險號主題限定商品，僅此一家</div></div><span class="fac-tag t-shop">購物</span></div>
-          <div class="fac"><span class="fac-ico">🖼️</span><div class="fac-info"><div class="fac-name">The Art of Disney on Demand<span class="fac-en">藝術畫作</span></div><div class="fac-desc">現場印製迪士尼畫作，可選裱框，含探險號船體圖</div></div><span class="fac-tag t-shop">購物</span></div>
-          <div class="fac"><span class="fac-ico">🍸</span><div class="fac-info"><div class="fac-name">Tiana's Bayou Lounge<span class="fac-en">蒂安娜酒吧</span></div><div class="fac-desc">公主與青蛙主題酒吧，無酒精飲品也精緻</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">🎭 華特迪士尼劇院<span class="fac-en">Walt Disney Theatre</span></div><div class="fac-desc">橫跨 5–7 層、1290 座的主劇院，每晚上演迪士尼匯演大秀</div></div><span class="fac-tag t-fun">娛樂</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🍽️ Animator's Palate<span class="fac-en">動畫師餐廳</span></div><div class="fac-desc">黑白空間漸變彩色，宛如走進動畫世界的互動主餐廳</div></div><span class="fac-tag t-dine">主餐廳</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🛍️ World of Disney<span class="fac-en">迪士尼世界商店</span></div><div class="fac-desc">船上最大商店，迪士尼周邊、服飾、玩偶一網打盡</div></div><span class="fac-tag t-shop">購物</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">🛍️ World of Disney Too<span class="fac-en">探險號限定店</span></div><div class="fac-desc">新加坡＆探險號主題限定商品，僅此一家</div></div><span class="fac-tag t-shop">購物</span></div>
+          <div class="fac"><span class="fac-no">5</span><div class="fac-info"><div class="fac-name">🖼️ The Art of Disney on Demand<span class="fac-en">藝術畫作</span></div><div class="fac-desc">現場印製迪士尼畫作，可選裱框，含探險號船體圖</div></div><span class="fac-tag t-shop">購物</span></div>
+          <div class="fac"><span class="fac-no">6</span><div class="fac-info"><div class="fac-name">🍸 Tiana's Bayou Lounge<span class="fac-en">蒂安娜酒吧</span></div><div class="fac-desc">公主與青蛙主題酒吧，無酒精飲品也精緻</div></div><span class="fac-tag t-pay">付費</span></div>
         </div>
       </div>
 
@@ -894,13 +937,27 @@
           <div class="deck-num">6</div>
           <div class="deck-name">第六層甲板<small>主餐廳・酒吧・沙龍</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第六層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="160" cy="72" r="12"/><text class="pinnum" x="160" y="76" text-anchor="middle">1</text>
+            <circle class="pin" cx="400" cy="72" r="12"/><text class="pinnum" x="400" y="76" text-anchor="middle">2</text>
+            <circle class="pin" cx="300" cy="46" r="12"/><text class="pinnum" x="300" y="50" text-anchor="middle">3</text>
+            <circle class="pin" cx="110" cy="102" r="12"/><text class="pinnum" x="110" y="106" text-anchor="middle">4</text>
+            <circle class="pin" cx="250" cy="102" r="12"/><text class="pinnum" x="250" y="106" text-anchor="middle">5</text>
+            <circle class="pin" cx="95" cy="50" r="12"/><text class="pinnum" x="95" y="54" text-anchor="middle">6</text>
+          </svg>
+          <div class="deck-mapnote">設施位置為示意參考，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">🍽️</span><div class="fac-info"><div class="fac-name">Enchanted Summer<span class="fac-en">魔法夏日</span></div><div class="fac-desc">公主與小矮人主題、分兩區的季節歡樂主餐廳</div></div><span class="fac-tag t-dine">主餐廳</span></div>
-          <div class="fac"><span class="fac-ico">🍿</span><div class="fac-info"><div class="fac-name">Premiere Sips & Snacks<span class="fac-en">劇院小點</span></div><div class="fac-desc">劇院入口的爆米花、糖果、飲料小舖</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🍸</span><div class="fac-info"><div class="fac-name">Spellbound<span class="fac-en">魔法酒吧</span></div><div class="fac-desc">白雪公主邪惡皇后主題的成人魔幻酒吧</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🍸</span><div class="fac-info"><div class="fac-name">Buccaneer Bar<span class="fac-en">海盜酒吧</span></div><div class="fac-desc">虎克船長海盜風小酒吧，氣氛輕鬆</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">💇</span><div class="fac-info"><div class="fac-name">Marvel Style Studio<span class="fac-en">漫威造型沙龍</span></div><div class="fac-desc">漫威英雄主題的美髮造型沙龍</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🍽️</span><div class="fac-info"><div class="fac-name">航海家俱樂部<span class="fac-en">Navigator's Club</span></div><div class="fac-desc">航海黃金年代風情的主題餐廳</div></div><span class="fac-tag t-dine">主餐廳</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">🍽️ Enchanted Summer<span class="fac-en">魔法夏日</span></div><div class="fac-desc">公主與小矮人主題、分兩區的季節歡樂主餐廳</div></div><span class="fac-tag t-dine">主餐廳</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🍿 Premiere Sips & Snacks<span class="fac-en">劇院小點</span></div><div class="fac-desc">劇院入口的爆米花、糖果、飲料小舖</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🍸 Spellbound<span class="fac-en">魔法酒吧</span></div><div class="fac-desc">白雪公主邪惡皇后主題的成人魔幻酒吧</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">🍸 Buccaneer Bar<span class="fac-en">海盜酒吧</span></div><div class="fac-desc">虎克船長海盜風小酒吧，氣氛輕鬆</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">5</span><div class="fac-info"><div class="fac-name">💇 Marvel Style Studio<span class="fac-en">漫威造型沙龍</span></div><div class="fac-desc">漫威英雄主題的美髮造型沙龍</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">6</span><div class="fac-info"><div class="fac-name">🍽️ 航海家俱樂部<span class="fac-en">Navigator's Club</span></div><div class="fac-desc">航海黃金年代風情的主題餐廳</div></div><span class="fac-tag t-dine">主餐廳</span></div>
         </div>
       </div>
 
@@ -910,16 +967,33 @@
           <div class="deck-num">7</div>
           <div class="deck-name">第七層甲板<small>青少年・電玩・變裝</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第七層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="392" cy="46" r="12"/><text class="pinnum" x="392" y="50" text-anchor="middle">1</text>
+            <circle class="pin" cx="360" cy="102" r="12"/><text class="pinnum" x="360" y="106" text-anchor="middle">2</text>
+            <circle class="pin" cx="315" cy="72" r="12"/><text class="pinnum" x="315" y="76" text-anchor="middle">3</text>
+            <circle class="pin" cx="270" cy="46" r="12"/><text class="pinnum" x="270" y="50" text-anchor="middle">4</text>
+            <circle class="pin" cx="230" cy="102" r="12"/><text class="pinnum" x="230" y="106" text-anchor="middle">5</text>
+            <circle class="pin" cx="190" cy="72" r="12"/><text class="pinnum" x="190" y="76" text-anchor="middle">6</text>
+            <circle class="pin" cx="140" cy="46" r="12"/><text class="pinnum" x="140" y="50" text-anchor="middle">7</text>
+            <circle class="pin" cx="100" cy="102" r="12"/><text class="pinnum" x="100" y="106" text-anchor="middle">8</text>
+            <circle class="pin" cx="62" cy="72" r="12"/><text class="pinnum" x="62" y="76" text-anchor="middle">9</text>
+          </svg>
+          <div class="deck-mapnote">設施位置為示意參考，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">👑</span><div class="fac-info"><div class="fac-name">魔法化妝廳<span class="fac-en">Bibbidi Bobbidi Boutique</span></div><div class="fac-desc">3–12 歲公主／騎士變裝體驗，神仙教母施魔法</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🎤</span><div class="fac-info"><div class="fac-name">私人卡拉OK包廂<span class="fac-en">Private Karaoke</span></div><div class="fac-desc">D Lounge 旁三間私人包廂</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🎉</span><div class="fac-info"><div class="fac-name">D Lounge<span class="fac-en">家庭娛樂廳</span></div><div class="fac-desc">親子同樂的娛樂空間，遊戲、表演、派對</div></div><span class="fac-tag t-fun">娛樂</span></div>
-          <div class="fac"><span class="fac-ico">🕹️</span><div class="fac-info"><div class="fac-name">大英雄天團電玩遊樂場<span class="fac-en">Big Hero Arcade</span></div><div class="fac-desc">最新潮的電玩遊戲機台</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🧑</span><div class="fac-info"><div class="fac-name">Edge / Vibe<span class="fac-en">青少年俱樂部</span></div><div class="fac-desc">Edge 11–14 歲、Vibe 14–17 歲專屬休閒空間</div></div><span class="fac-tag t-kid">青少年</span></div>
-          <div class="fac"><span class="fac-ico">☕</span><div class="fac-info"><div class="fac-name">Alley Cat Cafe<span class="fac-en">咖啡店</span></div><div class="fac-desc">小酒館貓主題咖啡與特調，輕食點心</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🛍️</span><div class="fac-info"><div class="fac-name">達菲與朋友 / 國家地理 / 珠寶店<span class="fac-en">Shops</span></div><div class="fac-desc">達菲商店、國家地理聯名、Diamonds and Wishes 珠寶</div></div><span class="fac-tag t-shop">購物</span></div>
-          <div class="fac"><span class="fac-ico">📷</span><div class="fac-info"><div class="fac-name">Pics Photo Shop<span class="fac-en">照片沖印店</span></div><div class="fac-desc">挑選列印旅程照片與相框紀念品</div></div><span class="fac-tag t-shop">購物</span></div>
-          <div class="fac"><span class="fac-ico">🎬</span><div class="fac-info"><div class="fac-name">杯麵電影院<span class="fac-en">Baymax Cinemas</span></div><div class="fac-desc">迪士尼／皮克斯／漫威／星戰電影院</div></div><span class="fac-tag t-fun">娛樂</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">👑 魔法化妝廳<span class="fac-en">Bibbidi Bobbidi Boutique</span></div><div class="fac-desc">3–12 歲公主／騎士變裝體驗，神仙教母施魔法</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🎤 私人卡拉OK包廂<span class="fac-en">Private Karaoke</span></div><div class="fac-desc">D Lounge 旁三間私人包廂</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🎉 D Lounge<span class="fac-en">家庭娛樂廳</span></div><div class="fac-desc">親子同樂的娛樂空間，遊戲、表演、派對</div></div><span class="fac-tag t-fun">娛樂</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">🕹️ 大英雄天團電玩遊樂場<span class="fac-en">Big Hero Arcade</span></div><div class="fac-desc">最新潮的電玩遊戲機台</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">5</span><div class="fac-info"><div class="fac-name">🧑 Edge / Vibe<span class="fac-en">青少年俱樂部</span></div><div class="fac-desc">Edge 11–14 歲、Vibe 14–17 歲專屬休閒空間</div></div><span class="fac-tag t-kid">青少年</span></div>
+          <div class="fac"><span class="fac-no">6</span><div class="fac-info"><div class="fac-name">☕ Alley Cat Cafe<span class="fac-en">咖啡店</span></div><div class="fac-desc">小酒館貓主題咖啡與特調，輕食點心</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">7</span><div class="fac-info"><div class="fac-name">🛍️ 達菲與朋友 / 國家地理 / 珠寶店<span class="fac-en">Shops</span></div><div class="fac-desc">達菲商店、國家地理聯名、Diamonds and Wishes 珠寶</div></div><span class="fac-tag t-shop">購物</span></div>
+          <div class="fac"><span class="fac-no">8</span><div class="fac-info"><div class="fac-name">📷 Pics Photo Shop<span class="fac-en">照片沖印店</span></div><div class="fac-desc">挑選列印旅程照片與相框紀念品</div></div><span class="fac-tag t-shop">購物</span></div>
+          <div class="fac"><span class="fac-no">9</span><div class="fac-info"><div class="fac-name">🎬 杯麵電影院<span class="fac-en">Baymax Cinemas</span></div><div class="fac-desc">迪士尼／皮克斯／漫威／星戰電影院</div></div><span class="fac-tag t-fun">娛樂</span></div>
         </div>
       </div>
 
@@ -929,15 +1003,31 @@
           <div class="deck-num">8</div>
           <div class="deck-name">第八層甲板<small>親子天地・兒童俱樂部</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第八層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="398" cy="72" r="12"/><text class="pinnum" x="398" y="76" text-anchor="middle">1</text>
+            <circle class="pin" cx="345" cy="46" r="12"/><text class="pinnum" x="345" y="50" text-anchor="middle">2</text>
+            <circle class="pin" cx="345" cy="102" r="12"/><text class="pinnum" x="345" y="106" text-anchor="middle">3</text>
+            <circle class="pin" cx="285" cy="46" r="12"/><text class="pinnum" x="285" y="50" text-anchor="middle">4</text>
+            <circle class="pin" cx="285" cy="102" r="12"/><text class="pinnum" x="285" y="106" text-anchor="middle">5</text>
+            <circle class="pin" cx="210" cy="46" r="12"/><text class="pinnum" x="210" y="50" text-anchor="middle">6</text>
+            <circle class="pin" cx="210" cy="102" r="12"/><text class="pinnum" x="210" y="106" text-anchor="middle">7</text>
+            <circle class="pin" cx="120" cy="72" r="12"/><text class="pinnum" x="120" y="76" text-anchor="middle">8</text>
+          </svg>
+          <div class="deck-mapnote">設施位置為示意參考，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">🍼</span><div class="fac-info"><div class="fac-name">小小世界托兒所<span class="fac-en">It's a Small World Nursery</span></div><div class="fac-desc">6 個月–3 歲嬰幼兒托育，爸媽可安心放鬆</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🌊</span><div class="fac-info"><div class="fac-name">迪士尼海洋俱樂部<span class="fac-en">Disney's Oceaneer Club</span></div><div class="fac-desc">3–10 歲免費托管，主題遊戲與科技互動（女兒主場！）</div></div><span class="fac-tag t-kid">親子</span></div>
-          <div class="fac"><span class="fac-ico">🦸</span><div class="fac-info"><div class="fac-name">漫威全球工程師聯盟工作室<span class="fac-en">Marvel Super Hero Academy</span></div><div class="fac-desc">成為超級英雄，參與刺激模擬訓練</div></div><span class="fac-tag t-kid">親子</span></div>
-          <div class="fac"><span class="fac-ico">⭐</span><div class="fac-info"><div class="fac-name">好萊塢星光俱樂部<span class="fac-en">Hollywood Club</span></div><div class="fac-desc">紅毯星光體驗，迪士尼／漫威主題</div></div><span class="fac-tag t-kid">親子</span></div>
-          <div class="fac"><span class="fac-ico">⚓</span><div class="fac-info"><div class="fac-name">米奇與米妮的船長天地<span class="fac-en">Captain's Deck</span></div><div class="fac-desc">小小航海家船艙場景，與米奇米妮拍照</div></div><span class="fac-tag t-kid">親子</span></div>
-          <div class="fac"><span class="fac-ico">🔬</span><div class="fac-info"><div class="fac-name">華特迪士尼幻想工程實驗室<span class="fac-en">Imagineering Lab</span></div><div class="fac-desc">動手創意實驗，啟發小小發明家</div></div><span class="fac-tag t-kid">親子</span></div>
-          <div class="fac"><span class="fac-ico">🧸</span><div class="fac-info"><div class="fac-name">安迪的玩具箱<span class="fac-en">Andy's Toy Box</span></div><div class="fac-desc">玩具總動員放大版遊樂場，盡情奔跑攀爬</div></div><span class="fac-tag t-kid">親子</span></div>
-          <div class="fac"><span class="fac-ico">🫖</span><div class="fac-info"><div class="fac-name">Royal Society for Friendship and Tea<span class="fac-en">公主下午茶</span></div><div class="fac-desc">3–12 歲與公主同樂的皇家茶會（午後場）</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">🍼 小小世界托兒所<span class="fac-en">It's a Small World Nursery</span></div><div class="fac-desc">6 個月–3 歲嬰幼兒托育，大人可安心放鬆</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🌊 迪士尼海洋俱樂部<span class="fac-en">Disney's Oceaneer Club</span></div><div class="fac-desc">3–10 歲免費托管，主題遊戲與科技互動（兩個女兒主場！）</div></div><span class="fac-tag t-kid">親子</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🦸 漫威全球工程師聯盟工作室<span class="fac-en">Marvel Super Hero Academy</span></div><div class="fac-desc">成為超級英雄，參與刺激模擬訓練</div></div><span class="fac-tag t-kid">親子</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">⭐ 好萊塢星光俱樂部<span class="fac-en">Hollywood Club</span></div><div class="fac-desc">紅毯星光體驗，迪士尼／漫威主題</div></div><span class="fac-tag t-kid">親子</span></div>
+          <div class="fac"><span class="fac-no">5</span><div class="fac-info"><div class="fac-name">⚓ 米奇與米妮的船長天地<span class="fac-en">Captain's Deck</span></div><div class="fac-desc">小小航海家船艙場景，與米奇米妮拍照</div></div><span class="fac-tag t-kid">親子</span></div>
+          <div class="fac"><span class="fac-no">6</span><div class="fac-info"><div class="fac-name">🔬 華特迪士尼幻想工程實驗室<span class="fac-en">Imagineering Lab</span></div><div class="fac-desc">動手創意實驗，啟發小小發明家</div></div><span class="fac-tag t-kid">親子</span></div>
+          <div class="fac"><span class="fac-no">7</span><div class="fac-info"><div class="fac-name">🧸 安迪的玩具箱<span class="fac-en">Andy's Toy Box</span></div><div class="fac-desc">玩具總動員放大版遊樂場，盡情奔跑攀爬</div></div><span class="fac-tag t-kid">親子</span></div>
+          <div class="fac"><span class="fac-no">8</span><div class="fac-info"><div class="fac-name">🫖 Royal Society for Friendship and Tea<span class="fac-en">公主下午茶</span></div><div class="fac-desc">3–12 歲與公主同樂的皇家茶會（午後場）</div></div><span class="fac-tag t-pay">付費</span></div>
         </div>
       </div>
 
@@ -947,10 +1037,21 @@
           <div class="deck-num">9</div>
           <div class="deck-name">第九層甲板<small>客房・醫療・餐廳</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第九層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="370" cy="72" r="12"/><text class="pinnum" x="370" y="76" text-anchor="middle">1</text>
+            <circle class="pin" cx="110" cy="72" r="12"/><text class="pinnum" x="110" y="76" text-anchor="middle">2</text>
+            <circle class="pin" cx="240" cy="48" r="12"/><text class="pinnum" x="240" y="52" text-anchor="middle">3</text>
+          </svg>
+          <div class="deck-mapnote">本層多為客房，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">🏥</span><div class="fac-info"><div class="fac-name">醫療中心<span class="fac-en">Medical Center</span></div><div class="fac-desc">日常門診與 24 小時待命醫護，費用記入客艙帳戶</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🍽️</span><div class="fac-info"><div class="fac-name">Animator's Table<span class="fac-en">動畫師餐桌</span></div><div class="fac-desc">阿拉丁、冰雪奇緣、海底總動員手繪藝術風的用餐空間</div></div><span class="fac-tag t-dine">主餐廳</span></div>
-          <div class="fac"><span class="fac-ico">🛏️</span><div class="fac-info"><div class="fac-name">客房樓層<span class="fac-en">Staterooms</span></div><div class="fac-desc">本層大部分為客艙</div></div><span class="fac-tag t-serv">客房</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">🏥 醫療中心<span class="fac-en">Medical Center</span></div><div class="fac-desc">日常門診與 24 小時待命醫護，費用記入客艙帳戶</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🍽️ Animator's Table<span class="fac-en">動畫師餐桌</span></div><div class="fac-desc">阿拉丁、冰雪奇緣、海底總動員手繪藝術風的用餐空間</div></div><span class="fac-tag t-dine">主餐廳</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🛏️ 客房樓層<span class="fac-en">Staterooms</span></div><div class="fac-desc">本層大部分為客艙</div></div><span class="fac-tag t-serv">客房</span></div>
         </div>
       </div>
 
@@ -958,20 +1059,41 @@
       <div class="deck-card">
         <div class="deck-card-head" style="background:linear-gradient(135deg,#1A7A6E,#2FA38F)">
           <div class="deck-num">10</div>
-          <div class="deck-name">第十層甲板<small>水療・健身・主題餐廳</small></div>
+          <div class="deck-name">第十層甲板<small>水療・健身・主題餐廳（我們的樓層）</small></div>
+        </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第十層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="400" cy="46" r="12"/><text class="pinnum" x="400" y="50" text-anchor="middle">1</text>
+            <circle class="pin" cx="400" cy="102" r="12"/><text class="pinnum" x="400" y="106" text-anchor="middle">2</text>
+            <circle class="pin" cx="350" cy="72" r="12"/><text class="pinnum" x="350" y="76" text-anchor="middle">3</text>
+            <circle class="pin" cx="305" cy="46" r="12"/><text class="pinnum" x="305" y="50" text-anchor="middle">4</text>
+            <circle class="pin" cx="305" cy="102" r="12"/><text class="pinnum" x="305" y="106" text-anchor="middle">5</text>
+            <circle class="pin-room" cx="338" cy="108" r="9"/><text class="pinnum" x="338" y="112" text-anchor="middle" style="font-size:11px">★</text>
+            <circle class="pin" cx="255" cy="72" r="12"/><text class="pinnum" x="255" y="76" text-anchor="middle">6</text>
+            <circle class="pin" cx="210" cy="46" r="12"/><text class="pinnum" x="210" y="50" text-anchor="middle">7</text>
+            <circle class="pin" cx="210" cy="102" r="12"/><text class="pinnum" x="210" y="106" text-anchor="middle">8</text>
+            <circle class="pin" cx="155" cy="72" r="12"/><text class="pinnum" x="155" y="76" text-anchor="middle">9</text>
+            <circle class="pin" cx="105" cy="46" r="12"/><text class="pinnum" x="105" y="50" text-anchor="middle">10</text>
+            <circle class="pin" cx="105" cy="102" r="12"/><text class="pinnum" x="105" y="106" text-anchor="middle">11</text>
+          </svg>
+          <div class="deck-mapnote">★ 紅點為我們的客房（10F，近 ⑤ Stitch's Ohana Grill）</div>
         </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">💆</span><div class="fac-info"><div class="fac-name">Senses Spa 水療中心<span class="fac-en">Spa</span></div><div class="fac-desc">水療、按摩、針灸、美甲、桑拿、芳療一應俱全</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">💪</span><div class="fac-info"><div class="fac-name">健身中心<span class="fac-en">Fitness Center</span></div><div class="fac-desc">明亮健身房，器材免費；私人課程需付費</div></div><span class="fac-tag t-serv">服務</span></div>
-          <div class="fac"><span class="fac-ico">🍛</span><div class="fac-info"><div class="fac-name">Mowgli's Eatery<span class="fac-en">叢林奇譚</span></div><div class="fac-desc">森林之王主題、印度自助風味與咖哩</div></div><span class="fac-tag t-dine">餐廳</span></div>
-          <div class="fac"><span class="fac-ico">🥥</span><div class="fac-info"><div class="fac-name">Gramma Tala's Kitchen<span class="fac-en">海洋奇緣</span></div><div class="fac-desc">南太平洋玻里尼西亞風味，島嶼溫暖風情</div></div><span class="fac-tag t-dine">餐廳</span></div>
-          <div class="fac"><span class="fac-ico">🥪</span><div class="fac-info"><div class="fac-name">Stitch's Ohana Grill<span class="fac-en">史迪奇燒烤</span></div><div class="fac-desc">夏威夷風格燒烤、漢堡與三明治</div></div><span class="fac-tag t-dine">餐廳</span></div>
-          <div class="fac"><span class="fac-ico">🧋</span><div class="fac-info"><div class="fac-name">Bewitching Boba and Brews<span class="fac-en">珍珠飲品</span></div><div class="fac-desc">小美人魚主題珍奶與特調飲品</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🍝</span><div class="fac-info"><div class="fac-name">Palo Trattoria<span class="fac-en">義式高級餐廳</span></div><div class="fac-desc">成人專屬北義料理，需預約付費（橫跨 10–11 層）</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🥩</span><div class="fac-info"><div class="fac-name">Mike & Sulley's Flavors of Asia<span class="fac-en">怪獸電力公司亞洲料理</span></div><div class="fac-desc">中、日、泰、印亞洲風味；含 Omakase（付費）</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🍸</span><div class="fac-info"><div class="fac-name">Wayfinder Bar<span class="fac-en">海洋奇緣酒吧</span></div><div class="fac-desc">海洋奇緣主題海景酒吧，戶外表演舞台旁</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🎭</span><div class="fac-info"><div class="fac-name">花園舞台<span class="fac-en">Garden Stage</span></div><div class="fac-desc">戶外表演舞台：Let's Set Sail、Avengers Assemble 等</div></div><span class="fac-tag t-fun">娛樂</span></div>
-          <div class="fac"><span class="fac-ico">🛍️</span><div class="fac-info"><div class="fac-name">Treasures Untold<span class="fac-en">冰雪奇緣商店</span></div><div class="fac-desc">公主與迪士尼經典商品、玩具、手作</div></div><span class="fac-tag t-shop">購物</span></div>
+          <div class="fac is-room"><span class="fac-no">★</span><div class="fac-info"><div class="fac-name">🛏️ 我們的客房<span class="fac-en">Our Stateroom · Deck 10</span></div><div class="fac-desc">位置靠近 Stitch's Ohana Grill（⑤），離泳池、戲水區與主題餐廳都近，動線超方便！</div></div><span class="fac-tag t-serv">客房</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">💆 Senses Spa 水療中心<span class="fac-en">Spa</span></div><div class="fac-desc">水療、按摩、針灸、美甲、桑拿、芳療一應俱全</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">💪 健身中心<span class="fac-en">Fitness Center</span></div><div class="fac-desc">明亮健身房，器材免費；私人課程需付費</div></div><span class="fac-tag t-serv">服務</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🍛 Mowgli's Eatery<span class="fac-en">叢林奇譚</span></div><div class="fac-desc">森林之王主題、印度自助風味與咖哩</div></div><span class="fac-tag t-dine">餐廳</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">🥥 Gramma Tala's Kitchen<span class="fac-en">海洋奇緣</span></div><div class="fac-desc">南太平洋玻里尼西亞風味，島嶼溫暖風情</div></div><span class="fac-tag t-dine">餐廳</span></div>
+          <div class="fac"><span class="fac-no">5</span><div class="fac-info"><div class="fac-name">🥪 Stitch's Ohana Grill<span class="fac-en">史迪奇燒烤</span></div><div class="fac-desc">夏威夷風格燒烤、漢堡與三明治 ⭐ 我們的客房就在附近</div></div><span class="fac-tag t-dine">餐廳</span></div>
+          <div class="fac"><span class="fac-no">6</span><div class="fac-info"><div class="fac-name">🧋 Bewitching Boba and Brews<span class="fac-en">珍珠飲品</span></div><div class="fac-desc">小美人魚主題珍奶與特調飲品</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">7</span><div class="fac-info"><div class="fac-name">🍝 Palo Trattoria<span class="fac-en">義式高級餐廳</span></div><div class="fac-desc">成人專屬北義料理，需預約付費（橫跨 10–11 層）</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">8</span><div class="fac-info"><div class="fac-name">🥩 Mike & Sulley's Flavors of Asia<span class="fac-en">怪獸電力公司亞洲料理</span></div><div class="fac-desc">中、日、泰、印亞洲風味；含 Omakase（付費）</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">9</span><div class="fac-info"><div class="fac-name">🍸 Wayfinder Bar<span class="fac-en">海洋奇緣酒吧</span></div><div class="fac-desc">海洋奇緣主題海景酒吧，戶外表演舞台旁</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">10</span><div class="fac-info"><div class="fac-name">🎭 花園舞台<span class="fac-en">Garden Stage</span></div><div class="fac-desc">戶外表演舞台：Let's Set Sail、Avengers Assemble 等</div></div><span class="fac-tag t-fun">娛樂</span></div>
+          <div class="fac"><span class="fac-no">11</span><div class="fac-info"><div class="fac-name">🛍️ Treasures Untold<span class="fac-en">冰雪奇緣商店</span></div><div class="fac-desc">公主與迪士尼經典商品、玩具、手作</div></div><span class="fac-tag t-shop">購物</span></div>
         </div>
       </div>
 
@@ -981,11 +1103,23 @@
           <div class="deck-num">11</div>
           <div class="deck-name">第十一層甲板<small>城堡花園・酒吧</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第十一層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="390" cy="72" r="12"/><text class="pinnum" x="390" y="76" text-anchor="middle">1</text>
+            <circle class="pin" cx="280" cy="46" r="12"/><text class="pinnum" x="280" y="50" text-anchor="middle">2</text>
+            <circle class="pin" cx="175" cy="102" r="12"/><text class="pinnum" x="175" y="106" text-anchor="middle">3</text>
+            <circle class="pin" cx="85" cy="72" r="12"/><text class="pinnum" x="85" y="76" text-anchor="middle">4</text>
+          </svg>
+          <div class="deck-mapnote">設施位置為示意參考，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">🏰</span><div class="fac-info"><div class="fac-name">花園 / 花園酒吧<span class="fac-en">Castle & Garden Bar</span></div><div class="fac-desc">第一座海上迪士尼城堡，米奇花藝雕塑與想像力花園</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🛍️</span><div class="fac-info"><div class="fac-name">Castle Collection<span class="fac-en">城堡商店</span></div><div class="fac-desc">城堡庭院旁小舖，娃娃、帽子、髮箍、玩具</div></div><span class="fac-tag t-shop">購物</span></div>
-          <div class="fac"><span class="fac-ico">🍸</span><div class="fac-info"><div class="fac-name">Taverna Portorosso<span class="fac-en">紅豬運動酒吧</span></div><div class="fac-desc">《紅豬》主題義式海岸小酒館，看球賽喝特調</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🍝</span><div class="fac-info"><div class="fac-name">Palo Trattoria<span class="fac-en">義式高級餐廳</span></div><div class="fac-desc">位於城堡花園旁，精緻北義料理（需預約付費）</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">🏰 花園 / 花園酒吧<span class="fac-en">Castle & Garden Bar</span></div><div class="fac-desc">第一座海上迪士尼城堡，米奇花藝雕塑與想像力花園</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🛍️ Castle Collection<span class="fac-en">城堡商店</span></div><div class="fac-desc">城堡庭院旁小舖，娃娃、帽子、髮箍、玩具</div></div><span class="fac-tag t-shop">購物</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🍸 Taverna Portorosso<span class="fac-en">紅豬運動酒吧</span></div><div class="fac-desc">《紅豬》主題義式海岸小酒館，看球賽喝特調</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">🍝 Palo Trattoria<span class="fac-en">義式高級餐廳</span></div><div class="fac-desc">位於城堡花園旁，精緻北義料理（需預約付費）</div></div><span class="fac-tag t-pay">付費</span></div>
         </div>
       </div>
 
@@ -995,9 +1129,19 @@
           <div class="deck-num">16</div>
           <div class="deck-name">第十六層甲板<small>客房・自助洗衣</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第十六層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="300" cy="72" r="12"/><text class="pinnum" x="300" y="76" text-anchor="middle">1</text>
+            <circle class="pin" cx="140" cy="72" r="12"/><text class="pinnum" x="140" y="76" text-anchor="middle">2</text>
+          </svg>
+          <div class="deck-mapnote">本層多為客房，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">🧺</span><div class="fac-info"><div class="fac-name">自助式洗衣房<span class="fac-en">Fairytale Fresh Laundry</span></div><div class="fac-desc">24 小時開放，房卡付費洗烘衣、免費熨斗熨燙板；另有付費乾洗收送</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">🛏️</span><div class="fac-info"><div class="fac-name">客房樓層<span class="fac-en">Staterooms</span></div><div class="fac-desc">本層大部分為客艙</div></div><span class="fac-tag t-serv">客房</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">🧺 自助式洗衣房<span class="fac-en">Fairytale Fresh Laundry</span></div><div class="fac-desc">24 小時開放，房卡付費洗烘衣、免費熨斗熨燙板；另有付費乾洗收送</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🛏️ 客房樓層<span class="fac-en">Staterooms</span></div><div class="fac-desc">本層大部分為客艙</div></div><span class="fac-tag t-serv">客房</span></div>
         </div>
       </div>
 
@@ -1007,13 +1151,27 @@
           <div class="deck-num">17</div>
           <div class="deck-name">第十七層甲板<small>戲水區・戶外餐廳・禮賓</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第十七層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="395" cy="72" r="12"/><text class="pinnum" x="395" y="76" text-anchor="middle">1</text>
+            <circle class="pin" cx="310" cy="46" r="12"/><text class="pinnum" x="310" y="50" text-anchor="middle">2</text>
+            <circle class="pin" cx="310" cy="102" r="12"/><text class="pinnum" x="310" y="106" text-anchor="middle">3</text>
+            <circle class="pin" cx="210" cy="72" r="12"/><text class="pinnum" x="210" y="76" text-anchor="middle">4</text>
+            <circle class="pin" cx="120" cy="46" r="12"/><text class="pinnum" x="120" y="50" text-anchor="middle">5</text>
+            <circle class="pin" cx="120" cy="102" r="12"/><text class="pinnum" x="120" y="106" text-anchor="middle">6</text>
+          </svg>
+          <div class="deck-mapnote">設施位置為示意參考，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">💦</span><div class="fac-info"><div class="fac-name">玩具總動員戲水區<span class="fac-en">Toy Story Water Play</span></div><div class="fac-desc">胡迪與翠絲瘋狂滑水道、飛碟水花區，小朋友放電勝地</div></div><span class="fac-tag t-fun">水上</span></div>
-          <div class="fac"><span class="fac-ico">🍕</span><div class="fac-info"><div class="fac-name">披薩星球<span class="fac-en">Pizza Planet</span></div><div class="fac-desc">玩具總動員主題戶外披薩，邊玩水邊吃</div></div><span class="fac-tag t-dine">餐廳</span></div>
-          <div class="fac"><span class="fac-ico">🍽️</span><div class="fac-info"><div class="fac-name">皮克斯市集餐廳<span class="fac-en">Pixar Market</span></div><div class="fac-desc">皮克斯經典場景的綜合自助餐廳，菜色豐富</div></div><span class="fac-tag t-dine">餐廳</span></div>
-          <div class="fac"><span class="fac-ico">🍧</span><div class="fac-info"><div class="fac-name">Wheezy's Freezies<span class="fac-en">沙沙冰飲</span></div><div class="fac-desc">沙沙冰、冰淇淋（含酒精飲品需另付費）</div></div><span class="fac-tag t-pay">付費</span></div>
-          <div class="fac"><span class="fac-ico">📺</span><div class="fac-info"><div class="fac-name">Adventure Vision<span class="fac-en">戶外大螢幕</span></div><div class="fac-desc">戲水區旁大型戶外影音螢幕</div></div><span class="fac-tag t-fun">娛樂</span></div>
-          <div class="fac"><span class="fac-ico">💎</span><div class="fac-info"><div class="fac-name">禮賓專屬休息室 / 商店<span class="fac-en">Concierge</span></div><div class="fac-desc">禮賓客專屬休息室、3 Wishes / Palace Treasures 精品店</div></div><span class="fac-tag t-serv">禮賓</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">💦 玩具總動員戲水區<span class="fac-en">Toy Story Water Play</span></div><div class="fac-desc">胡迪與翠絲瘋狂滑水道、飛碟水花區，小朋友放電勝地</div></div><span class="fac-tag t-fun">水上</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🍕 披薩星球<span class="fac-en">Pizza Planet</span></div><div class="fac-desc">玩具總動員主題戶外披薩，邊玩水邊吃</div></div><span class="fac-tag t-dine">餐廳</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🍽️ 皮克斯市集餐廳<span class="fac-en">Pixar Market</span></div><div class="fac-desc">皮克斯經典場景的綜合自助餐廳，菜色豐富</div></div><span class="fac-tag t-dine">餐廳</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">🍧 Wheezy's Freezies<span class="fac-en">沙沙冰飲</span></div><div class="fac-desc">沙沙冰、冰淇淋（含酒精飲品需另付費）</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">5</span><div class="fac-info"><div class="fac-name">📺 Adventure Vision<span class="fac-en">戶外大螢幕</span></div><div class="fac-desc">戲水區旁大型戶外影音螢幕</div></div><span class="fac-tag t-fun">娛樂</span></div>
+          <div class="fac"><span class="fac-no">6</span><div class="fac-info"><div class="fac-name">💎 禮賓專屬休息室 / 商店<span class="fac-en">Concierge</span></div><div class="fac-desc">禮賓客專屬休息室、3 Wishes / Palace Treasures 精品店</div></div><span class="fac-tag t-serv">禮賓</span></div>
         </div>
       </div>
 
@@ -1023,13 +1181,27 @@
           <div class="deck-num">18</div>
           <div class="deck-name">第十八層甲板<small>泳池・漫威・夜空秀</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第十八層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="395" cy="72" r="12"/><text class="pinnum" x="395" y="76" text-anchor="middle">1</text>
+            <circle class="pin" cx="310" cy="46" r="12"/><text class="pinnum" x="310" y="50" text-anchor="middle">2</text>
+            <circle class="pin" cx="310" cy="102" r="12"/><text class="pinnum" x="310" y="106" text-anchor="middle">3</text>
+            <circle class="pin" cx="200" cy="72" r="12"/><text class="pinnum" x="200" y="76" text-anchor="middle">4</text>
+            <circle class="pin" cx="110" cy="46" r="12"/><text class="pinnum" x="110" y="50" text-anchor="middle">5</text>
+            <circle class="pin" cx="110" cy="102" r="12"/><text class="pinnum" x="110" y="106" text-anchor="middle">6</text>
+          </svg>
+          <div class="deck-mapnote">設施位置為示意參考，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">🏊</span><div class="fac-info"><div class="fac-name">無邊際泳池和酒吧<span class="fac-en">Infinity Pool & Bar</span></div><div class="fac-desc">英雄背景的無邊際泳池，戶外暢泳同時看海景</div></div><span class="fac-tag t-fun">泳池</span></div>
-          <div class="fac"><span class="fac-ico">🎆</span><div class="fac-info"><div class="fac-name">獅子王：天空中的慶典<span class="fac-en">Lion King Sky Show</span></div><div class="fac-desc">無人機＋煙火＋雷射的招牌夜空大秀，務必觀賞</div></div><span class="fac-tag t-fun">夜秀</span></div>
-          <div class="fac"><span class="fac-ico">🏎️</span><div class="fac-info"><div class="fac-name">皮姆量子賽車<span class="fac-en">Pym Quantum Racers</span></div><div class="fac-desc">皮姆粒子科技改造的迷你賽車，量子競速</div></div><span class="fac-tag t-fun">娛樂</span></div>
-          <div class="fac"><span class="fac-ico">🌀</span><div class="fac-info"><div class="fac-name">格魯特銀河旋轉<span class="fac-en">Groot Galaxy Spin</span></div><div class="fac-desc">音樂節拍與旋轉飛椅，和格魯特一起轉</div></div><span class="fac-tag t-fun">娛樂</span></div>
-          <div class="fac"><span class="fac-ico">🏃</span><div class="fac-info"><div class="fac-name">甲板跑道<span class="fac-en">Running Track</span></div><div class="fac-desc">海上慢跑路線，邊跑邊欣賞海景</div></div><span class="fac-tag t-fun">運動</span></div>
-          <div class="fac"><span class="fac-ico">💆</span><div class="fac-info"><div class="fac-name">禮賓 Spa / 健身中心<span class="fac-en">Concierge Spa & Fitness</span></div><div class="fac-desc">禮賓客專屬靜謐水療與健身空間（付費）</div></div><span class="fac-tag t-pay">付費</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">🏊 無邊際泳池和酒吧<span class="fac-en">Infinity Pool & Bar</span></div><div class="fac-desc">英雄背景的無邊際泳池，戶外暢泳同時看海景</div></div><span class="fac-tag t-fun">泳池</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🎆 獅子王：天空中的慶典<span class="fac-en">Lion King Sky Show</span></div><div class="fac-desc">無人機＋煙火＋雷射的招牌夜空大秀，務必觀賞</div></div><span class="fac-tag t-fun">夜秀</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🏎️ 皮姆量子賽車<span class="fac-en">Pym Quantum Racers</span></div><div class="fac-desc">皮姆粒子科技改造的迷你賽車，量子競速</div></div><span class="fac-tag t-fun">娛樂</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">🌀 格魯特銀河旋轉<span class="fac-en">Groot Galaxy Spin</span></div><div class="fac-desc">音樂節拍與旋轉飛椅，和格魯特一起轉</div></div><span class="fac-tag t-fun">娛樂</span></div>
+          <div class="fac"><span class="fac-no">5</span><div class="fac-info"><div class="fac-name">🏃 甲板跑道<span class="fac-en">Running Track</span></div><div class="fac-desc">海上慢跑路線，邊跑邊欣賞海景</div></div><span class="fac-tag t-fun">運動</span></div>
+          <div class="fac"><span class="fac-no">6</span><div class="fac-info"><div class="fac-name">💆 禮賓 Spa / 健身中心<span class="fac-en">Concierge Spa & Fitness</span></div><div class="fac-desc">禮賓客專屬靜謐水療與健身空間（付費）</div></div><span class="fac-tag t-pay">付費</span></div>
         </div>
       </div>
 
@@ -1039,11 +1211,23 @@
           <div class="deck-num">19</div>
           <div class="deck-name">第十九層甲板<small>海上雲霄飛車・禮賓泳池</small></div>
         </div>
+        <div class="deck-mapwrap">
+          <svg class="deck-svg" viewBox="0 0 460 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第十九層甲板示意位置圖">
+            <path class="hull" d="M70,16 L370,16 C415,18 442,42 452,72 C442,102 415,126 370,128 L70,128 Q18,126 16,72 Q18,18 70,16 Z"/>
+            <line class="deck-line" x1="48" y1="72" x2="416" y2="72"/>
+            <text class="dirlabel" x="22" y="146">◀ 船尾</text><text class="dirlabel" x="388" y="146">船頭 ▶</text>
+            <circle class="pin" cx="390" cy="46" r="12"/><text class="pinnum" x="390" y="50" text-anchor="middle">1</text>
+            <circle class="pin" cx="290" cy="102" r="12"/><text class="pinnum" x="290" y="106" text-anchor="middle">2</text>
+            <circle class="pin" cx="160" cy="46" r="12"/><text class="pinnum" x="160" y="50" text-anchor="middle">3</text>
+            <circle class="pin" cx="90" cy="102" r="12"/><text class="pinnum" x="90" y="106" text-anchor="middle">4</text>
+          </svg>
+          <div class="deck-mapnote">設施位置為示意參考，數字對應下方清單</div>
+        </div>
         <div class="deck-card-body">
-          <div class="fac"><span class="fac-ico">🎢</span><div class="fac-info"><div class="fac-name">Ironcycle Test Run<span class="fac-en">海上雲霄飛車</span></div><div class="fac-desc">迪士尼郵輪首座、海上最長（約 250m）的鋼鐵機車雲霄飛車，鋼鐵人主題（從 18 層入口進）</div></div><span class="fac-tag t-fun">刺激</span></div>
-          <div class="fac"><span class="fac-ico">🌀</span><div class="fac-info"><div class="fac-name">胡迪和翠絲的瘋狂滑水道<span class="fac-en">Slinky Slides</span></div><div class="fac-desc">鮮黃配色旋轉滑水道入口層，大小朋友都愛</div></div><span class="fac-tag t-fun">水上</span></div>
-          <div class="fac"><span class="fac-ico">🏊</span><div class="fac-info"><div class="fac-name">禮賓日光浴甲板與泳池<span class="fac-en">Concierge Sundeck & Pool</span></div><div class="fac-desc">禮賓客專屬豪華躺椅、按摩水療、熱水池與海景</div></div><span class="fac-tag t-serv">禮賓</span></div>
-          <div class="fac"><span class="fac-ico">🍽️</span><div class="fac-info"><div class="fac-name">禮賓日光甲板用餐區<span class="fac-en">Concierge Sundeck Dining</span></div><div class="fac-desc">禮賓客專屬用餐區，免費輕食、汽水、咖啡</div></div><span class="fac-tag t-serv">禮賓</span></div>
+          <div class="fac"><span class="fac-no">1</span><div class="fac-info"><div class="fac-name">🎢 Ironcycle Test Run<span class="fac-en">海上雲霄飛車</span></div><div class="fac-desc">迪士尼郵輪首座、海上最長（約 250m）的鋼鐵機車雲霄飛車，鋼鐵人主題（從 18 層入口進）</div></div><span class="fac-tag t-fun">刺激</span></div>
+          <div class="fac"><span class="fac-no">2</span><div class="fac-info"><div class="fac-name">🌀 胡迪和翠絲的瘋狂滑水道<span class="fac-en">Slinky Slides</span></div><div class="fac-desc">鮮黃配色旋轉滑水道入口層，大小朋友都愛</div></div><span class="fac-tag t-fun">水上</span></div>
+          <div class="fac"><span class="fac-no">3</span><div class="fac-info"><div class="fac-name">🏊 禮賓日光浴甲板與泳池<span class="fac-en">Concierge Sundeck & Pool</span></div><div class="fac-desc">禮賓客專屬豪華躺椅、按摩水療、熱水池與海景</div></div><span class="fac-tag t-serv">禮賓</span></div>
+          <div class="fac"><span class="fac-no">4</span><div class="fac-info"><div class="fac-name">🍽️ 禮賓日光甲板用餐區<span class="fac-en">Concierge Sundeck Dining</span></div><div class="fac-desc">禮賓客專屬用餐區，免費輕食、汽水、咖啡</div></div><span class="fac-tag t-serv">禮賓</span></div>
         </div>
       </div>
 
@@ -1113,7 +1297,7 @@
 <!-- FOOTER -->
 <footer>
   <strong>WAA家 2026冬 · 新加坡・迪士尼探險號郵輪 6天5夜</strong>
-  🚢 Disney Adventure &nbsp;|&nbsp; 12.23 – 12.28 &nbsp;|&nbsp; 爸爸・媽媽・女兒 &nbsp;|&nbsp; 🎄 海上過聖誕，最魔幻的家庭旅程！
+  🚢 Disney Adventure &nbsp;|&nbsp; 12.23 – 12.28 &nbsp;|&nbsp; 婆婆・媽媽・大嫂・兩個女兒 &nbsp;|&nbsp; 🎄 海上過聖誕，最魔幻的家庭旅程！
 </footer>
 
 </body>
